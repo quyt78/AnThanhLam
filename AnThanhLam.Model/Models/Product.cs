@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
-using TeduShop.Model.Abstract;
+using AnThanhLam.Model.Abstract;
 
-namespace TeduShop.Model.Models
+namespace AnThanhLam.Model.Models
 {
     [Table("Products")]
     
