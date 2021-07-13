@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace AnThanhLam.Data
 {
-    public class AnThanhLamDbContext : DbContext
+    public class AnThanhLamDbContext : IdentityDbContext<ApplicationUser>
     {
         public AnThanhLamDbContext() : base("AnThanhLamConnection")
         {

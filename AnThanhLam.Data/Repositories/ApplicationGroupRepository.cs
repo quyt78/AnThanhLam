@@ -11,7 +11,7 @@ namespace AnThanhLam.Data.Repositories
     public interface IApplicationGroupRepository : IRepository<ApplicationGroup>
     {
         IEnumerable<ApplicationGroup> GetListGroupByUserId(string userId);
-        //IEnumerable<ApplicationUser> GetListUserByGroupId(int groupId);
+        IEnumerable<ApplicationUser> GetListUserByGroupId(int groupId);
     }
     public class ApplicationGroupRepository : RepositoryBase<ApplicationGroup>, IApplicationGroupRepository
     {
@@ -30,16 +30,16 @@ namespace AnThanhLam.Data.Repositories
             return query;
         }
 
-        //public IEnumerable<ApplicationUser> GetListUserByGroupId(int groupId)
-        //{
-        //    var query = from g in DbContext.ApplicationGroups
-        //                join ug in DbContext.ApplicationUserGroups
-        //                on g.ID equals ug.GroupId
-        //                join u in DbContext.Users
-        //                on ug.UserId equals u.Id
-        //                where ug.GroupId == groupId
-        //                select u;
-        //    return query;
-        //}
+        public IEnumerable<ApplicationUser> GetListUserByGroupId(int groupid)
+        {
+            var query = from g in DbContext.ApplicationGroups
+                        join ug in DbContext.ApplicationUserGroups
+                        on g.ID equals ug.GroupId
+                        join u in DbContext.Users
+                        on ug.UserId equals u.Id
+                        where ug.GroupId == groupid
+                        select u;
+            return query;
+        }
     }
 }

@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202107130735066_InitialDB.designer.cs">
       <DependentUpon>202107130735066_InitialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107130928242_AddUserTable.cs" />
+    <Compile Include="Migrations\202107130928242_AddUserTable.designer.cs">
+      <DependentUpon>202107130928242_AddUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
@@ -113,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107130735066_InitialDB.resx">
       <DependentUpon>202107130735066_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107130928242_AddUserTable.resx">
+      <DependentUpon>202107130928242_AddUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
