@@ -1,11 +1,11 @@
-﻿using System;
+﻿using AnThanhLam.Data.Infrastructure;
+using AnThanhLam.Data.Repositories;
+using AnThanhLam.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AnThanhLam.Data.Infrastructure;
-using AnThanhLam.Data.Repositories;
-using AnThanhLam.Model.Models;
 
 namespace AnThanhLam.Service
 {
@@ -18,7 +18,8 @@ namespace AnThanhLam.Service
     {
         IErrorRepository _errorRepository;
         IUnitOfWork _unitOfWork;
-        public ErrorService(IErrorRepository errorRepository,IUnitOfWork unitOfWork)
+
+        public ErrorService(IErrorRepository errorRepository, IUnitOfWork unitOfWork)
         {
             this._errorRepository = errorRepository;
             this._unitOfWork = unitOfWork;
