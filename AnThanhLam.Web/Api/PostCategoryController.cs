@@ -1,9 +1,13 @@
 ﻿using AnThanhLam.Model.Models;
 using AnThanhLam.Service;
 using AnThanhLam.Web.Infrastructure.Core;
+using AnThanhLam.Web.Models;
+using AutoMapper;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AnThanhLam.Web.Infrastructure.Extensions;
 
 namespace AnThanhLam.Web.Api
 {
@@ -23,13 +27,16 @@ namespace AnThanhLam.Web.Api
             {
 
                 var listCategory = _postCategoryService.GetAll();
-                HttpResponseMessage reponse = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
+                var listPostcategory = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+                HttpResponseMessage reponse = request.CreateResponse(HttpStatusCode.OK, listPostcategory);
 
                 return reponse;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -40,7 +47,9 @@ namespace AnThanhLam.Web.Api
                 }
                 else
                 {
-                    var category = _postCategoryService.Add(postCategory);
+                    PostCategory newPostCategory = new PostCategory();
+                    newPostCategory.UpdatePostCategory(postCategoryVM);
+                    var category = _postCategoryService.Add(newPostCategory);
                     _postCategoryService.Save();
 
                     reponse = request.CreateResponse(HttpStatusCode.Created, category);
@@ -49,7 +58,8 @@ namespace AnThanhLam.Web.Api
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategory)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -60,7 +70,9 @@ namespace AnThanhLam.Web.Api
                 }
                 else
                 {
-                    _postCategoryService.Update(postCategory);
+                    var postCategoryDb = _postCategoryService.GetById(postCategory.ID);
+                    postCategoryDb.UpdatePostCategory(postCategory);
+                    _postCategoryService.Update(postCategoryDb);
                     _postCategoryService.Save();
 
                     reponse = request.CreateResponse(HttpStatusCode.OK);

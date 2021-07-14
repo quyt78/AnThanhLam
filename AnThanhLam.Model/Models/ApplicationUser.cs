@@ -11,6 +11,8 @@ namespace AnThanhLam.Model.Models
 {
     public class ApplicationUser : IdentityUser
     {
+
+
         [MaxLength(256)]
         public string FullName { set; get; }
 
