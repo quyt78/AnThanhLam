@@ -1,9 +1,6 @@
 ﻿using AnThanhLam.Model.Models;
 using AnThanhLam.Service;
 using AnThanhLam.Web.Infrastructure.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -24,18 +21,10 @@ namespace AnThanhLam.Web.Api
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage reponse = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategoryService.GetAll();
-                    _postCategoryService.Save();
 
-                    reponse = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
+                var listCategory = _postCategoryService.GetAll();
+                HttpResponseMessage reponse = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
                 return reponse;
             });
         }
@@ -45,13 +34,13 @@ namespace AnThanhLam.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage reponse = null;
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
-                   var category = _postCategoryService.Add(postCategory);
+                    var category = _postCategoryService.Add(postCategory);
                     _postCategoryService.Save();
 
                     reponse = request.CreateResponse(HttpStatusCode.Created, category);
@@ -71,7 +60,7 @@ namespace AnThanhLam.Web.Api
                 }
                 else
                 {
-                     _postCategoryService.Update(postCategory);
+                    _postCategoryService.Update(postCategory);
                     _postCategoryService.Save();
 
                     reponse = request.CreateResponse(HttpStatusCode.OK);
@@ -98,6 +87,6 @@ namespace AnThanhLam.Web.Api
                 }
                 return reponse;
             });
-        }     
+        }
     }
 }
