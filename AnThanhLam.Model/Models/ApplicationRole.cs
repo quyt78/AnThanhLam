@@ -15,8 +15,7 @@ namespace AnThanhLam.Model.Models
 
         }
         [Key]
-        [MaxLength(50)]
-        public string Id { set; get; }
+        [MaxLength(50)]        
 
         [StringLength(250)]
         public string Description { set; get; }

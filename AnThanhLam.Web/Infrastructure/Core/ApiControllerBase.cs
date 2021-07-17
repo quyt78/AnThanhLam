@@ -69,7 +69,5 @@ namespace AnThanhLam.Web.Infrastructure.Core
 
             }
         }
-
-
     }
 }

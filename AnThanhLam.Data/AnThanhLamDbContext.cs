@@ -14,6 +14,7 @@ namespace AnThanhLam.Data
         public DbSet<Footer> Footers { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<MenuGroup> MenuGroups { get; set; }
+        public DbSet<ContactDetail> ContactDetails { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<PostCategory> PostCategories { get; set; }
