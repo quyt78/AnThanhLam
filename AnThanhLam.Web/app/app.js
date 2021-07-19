@@ -1,6 +1,6 @@
 ﻿/// <reference path="../assets/admin/libs/bower_components/angular/angular.js" />
 (function () {
-    angular.module('anthanhlam', ['anthanhlam.products','anthanhlam.common']).config(config);
+    angular.module('anthanhlam',['anthanhlam.products', 'anthanhlam.product_categories', 'anthanhlam.common']).config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
