@@ -21,15 +21,40 @@ namespace AnThanhLam.Web.Api
             this._productCategoryService = productCategoryService;
         }
 
-        [HttpGet]
+        
+
         [Route("getall")]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
                 var model = _productCategoryService.GetAll();
-                var reponseData = Mapper.Map<IEnumerable<ProductCategory>, List<ProductCategoryViewModel>>(model);
+                var reponseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
                 var response = request.CreateResponse(HttpStatusCode.OK, reponseData);
+                return response;
+            });
+        }
+
+        
+        [Route("getall")]
+        public HttpResponseMessage GetAll(HttpRequestMessage request, int page, int pageSize = 20)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                int totalRow = 0;
+                var model = _productCategoryService.GetAll();
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x=>x.CreatedDate).Skip(page * pageSize).Take(pageSize);
+                var reponseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(query);
+                PaginationSet<ProductCategoryViewModel> paginationSet = new PaginationSet<ProductCategoryViewModel>()
+                {
+                    Items = reponseData,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

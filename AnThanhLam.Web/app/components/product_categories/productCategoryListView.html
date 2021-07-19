@@ -39,13 +39,7 @@
                             </table>
                         </div><!-- /.box-body -->
                         <div class="box-footer clearfix">
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                <li><a href="#">&laquo;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
+                            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pageCount}}" total-count="{{totalCount}}" search-func="getProductCategories(page)"></pager-directive>
                         </div>
                     </div><!-- /.box -->                 
                 </div><!-- /.col -->
