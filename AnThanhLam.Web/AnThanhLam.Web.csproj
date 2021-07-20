@@ -300,6 +300,7 @@
     <Content Include="app\shared\filter\statusFilter.js" />
     <Content Include="app\shared\modules\anthanhlam.common.js" />
     <Content Include="app\shared\services\apiService.js" />
+    <Content Include="app\shared\services\notificationService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
     <Content Include="Assets\admin\css\bootstrap.min.css" />
