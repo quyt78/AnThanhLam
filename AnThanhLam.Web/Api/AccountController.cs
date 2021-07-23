@@ -13,6 +13,7 @@ using System.Web.Http;
 
 namespace AnThanhLam.Web.Api
 {
+
     [RoutePrefix("api/account")]
     public class AccountController : ApiController
     {
@@ -21,15 +22,12 @@ namespace AnThanhLam.Web.Api
 
         public AccountController()
         {
-
         }
 
-     
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorService errorService) 
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
-            SignInManager = signInManager;
             UserManager = userManager;
+            SignInManager = signInManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -38,7 +36,6 @@ namespace AnThanhLam.Web.Api
             {
                 return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
             }
-
             private set
             {
                 _signInManager = value;
@@ -49,7 +46,7 @@ namespace AnThanhLam.Web.Api
         {
             get
             {
-                return _userManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>();
+                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -57,29 +54,23 @@ namespace AnThanhLam.Web.Api
             }
         }
 
-        [HttpGet]
-        public HttpResponseMessage Get(HttpRequestMessage request)
-        {
-            return request.CreateResponse(HttpStatusCode.OK, "1");
-        }
-
-
         [HttpPost]
         [AllowAnonymous]
         [Route("login")]
         public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName, string password, bool rememberMe)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
-
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(userName, password, rememberMe, shouldLockout: false);
             return request.CreateResponse(HttpStatusCode.OK, result);
         }
 
         [HttpPost]
-        [Authorize(Roles = "User")]
+        [Authorize]
         [Route("logout")]
         public HttpResponseMessage Logout(HttpRequestMessage request)
         {
