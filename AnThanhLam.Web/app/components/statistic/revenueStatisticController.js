@@ -17,7 +17,7 @@
                     toDate: '01/01/2017'
                 }
             }
-            apiService.get('api/statistic/getrevenue?fromDate=' + config.param.fromDate + "&toDate=" + config.param.toDate, null, function (response) {
+            apiService.get('/api/statistic/getrevenue?fromDate=' + config.param.fromDate + "&toDate=" + config.param.toDate, null, function (response) {
                 $scope.tabledata = response.data;
                 var labels = [];
                 var chartData = [];

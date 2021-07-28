@@ -1,7 +1,7 @@
-﻿@model TeduShop.Web.Infrastructure.Core.PaginationSet<TeduShop.Web.Models.ProductViewModel>
+﻿@model AnThanhLam.Web.Infrastructure.Core.PaginationSet<AnThanhLam.Web.Models.ProductViewModel>
 
 @{
-    var category = (TeduShop.Web.Models.ProductCategoryViewModel)ViewBag.Category;
+    var category = (AnThanhLam.Web.Models.ProductCategoryViewModel)ViewBag.Category;
     var pageIndex = Model.Page;
     ViewBag.Title = pageIndex == 1 ? category.Name : category.Name + " - Trang " + pageIndex;
     ViewBag.MetaKeyword = pageIndex == 1 ? category.MetaKeyword : category.MetaKeyword + " - Trang " + pageIndex;

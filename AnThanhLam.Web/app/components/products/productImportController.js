@@ -57,7 +57,7 @@
             });
         }
         function loadProductCategory() {
-            apiService.get('api/productcategory/getallparents', null, function (result) {
+            apiService.get('/api/productcategory/getallparents', null, function (result) {
                 $scope.parentCategories = commonService.getTree(result.data, "ID", "ParentID");
                 $scope.parentCategories.forEach(function (item) {
                     recur(item, 0, $scope.flatFolders);

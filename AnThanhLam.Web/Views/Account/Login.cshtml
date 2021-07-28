@@ -1,4 +1,4 @@
-﻿@model TeduShop.Web.Models.LoginViewModel
+﻿@model AnThanhLam.Web.Models.LoginViewModel
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/Layouts.cshtml";
@@ -27,7 +27,7 @@
 
     }
 
-    @Html.Partial("_ExternalLoginsListPartial", new TeduShop.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    @Html.Partial("_ExternalLoginsListPartial", new AnThanhLam.Web.Models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
 
 
   </div>

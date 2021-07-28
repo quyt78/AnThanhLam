@@ -24,7 +24,7 @@
         function AddProduct() {
 
             $scope.product.MoreImages = JSON.stringify($scope.moreImages)
-            apiService.post('api/product/create', $scope.product,
+            apiService.post('/api/product/create', $scope.product,
                 function (result) {
                     notificationService.displaySuccess(result.data.Name + ' đã được thêm mới.');
                     $state.go('products');
@@ -33,7 +33,7 @@
                 });
         }
         function loadProductCategory() {
-            apiService.get('api/productcategory/getallparents', null, function (result) {
+            apiService.get('/api/productcategory/getallparents', null, function (result) {
                 $scope.productCategories = result.data;
             }, function () {
                 console.log('Cannot get list parent');

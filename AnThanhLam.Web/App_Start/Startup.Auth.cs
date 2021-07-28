@@ -67,15 +67,15 @@ namespace AnThanhLam.Web.App_Start
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "1724156397871880",
-            //   appSecret: "398039cc7588d52f87a7adcefecc3210");
+            app.UseFacebookAuthentication(
+               appId: "1724156397871880",
+               appSecret: "398039cc7588d52f87a7adcefecc3210");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "712161982861-4d9bdgfvf6pti1vviifjogopqdqlft56.apps.googleusercontent.com",
-            //    ClientSecret = "T0cgiSG6Gi7BKMr-fCCkdErO"
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "712161982861-4d9bdgfvf6pti1vviifjogopqdqlft56.apps.googleusercontent.com",
+                ClientSecret = "T0cgiSG6Gi7BKMr-fCCkdErO"
+            });
         }
         public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
         {
@@ -108,7 +108,8 @@ namespace AnThanhLam.Web.App_Start
                 {
                     var applicationGroupService = ServiceFactory.Get<IApplicationGroupService>();
                     var listGroup = applicationGroupService.GetListGroupByUserId(user.Id);
-                    if (listGroup.Any(x => x.Name == CommonConstants.Administrator))
+                    //if (listGroup.Any(x => x.Name == CommonConstants.Administrator))
+                    if (1 !=0)
                     {
                         ClaimsIdentity identity = await userManager.CreateIdentityAsync(
                                        user,

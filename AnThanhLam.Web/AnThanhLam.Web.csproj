@@ -59,6 +59,12 @@
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BotDetect, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.4.2.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.4.2\lib\net35\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -99,6 +105,9 @@
     <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.2.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
     </Reference>
@@ -123,6 +132,9 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -279,7 +291,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +307,7 @@
     <Compile Include="Infrastructure\Core\PaginationSet.cs" />
     <Compile Include="Infrastructure\Core\ServiceFactory.cs" />
     <Compile Include="Infrastructure\Extensions\EntityExtensions.cs" />
+    <Compile Include="Infrastructure\NganLuongAPI\APICheckoutV3.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Models\ApplicationGroupViewModel.cs" />
     <Compile Include="Models\ApplicationRoleViewModel.cs" />
@@ -352,6 +373,8 @@
     <Content Include="app\components\product_categories\productCategory.module.js" />
     <Content Include="app\components\product_categories\productCategoryAddController.js" />
     <Content Include="app\components\product_categories\productCategoryAddView.html" />
+    <Content Include="app\components\product_categories\productCategoryEditController.js" />
+    <Content Include="app\components\product_categories\productCategoryEditView.html" />
     <Content Include="app\components\product_categories\productCategoryListController.js" />
     <Content Include="app\components\product_categories\productCategoryListView.html" />
     <Content Include="app\components\statistic\revenueStatisticController.js" />
@@ -367,12 +390,15 @@
     <Content Include="app\shared\services\authData.js" />
     <Content Include="app\shared\services\authenticationService.js" />
     <Content Include="app\shared\services\commonService.js" />
+    <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\notificationService.js" />
     <Content Include="app\shared\vIews\baseBar.html" />
     <Content Include="app\shared\vIews\baseView.html" />
+    <Content Include="app\shared\vIews\sideBar.html" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
     <Content Include="Assets\admin\css\bootstrap.min.css" />
+    <Content Include="Assets\admin\css\custom.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.min.css" />
     <Content Include="Assets\admin\css\skins\skin-black.css" />
@@ -482,6 +508,10 @@
     <Content Include="Assets\admin\libs\angular-ui-select\docs\partials\_footer.html" />
     <Content Include="Assets\admin\libs\angular-ui-select\docs\partials\_header.html" />
     <Content Include="Assets\admin\libs\angular-ui-select\index.js" />
+    <Content Include="Assets\admin\libs\angular\angular-csp.css" />
+    <Content Include="Assets\admin\libs\angular\angular.js" />
+    <Content Include="Assets\admin\libs\angular\angular.min.js" />
+    <Content Include="Assets\admin\libs\angular\index.js" />
     <Content Include="Assets\admin\libs\bootbox\.gitignore" />
     <Content Include="Assets\admin\libs\bootbox\bootbox.js" />
     <Content Include="Assets\admin\libs\bootstrap\dist\css\bootstrap-theme.css" />
@@ -5100,6 +5130,78 @@
     <Content Include="Assets\admin\libs\toastr\toastr.js" />
     <Content Include="Assets\admin\libs\toastr\toastr.min.css" />
     <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
+    <Content Include="Assets\client\css\bootstrap.css" />
+    <Content Include="Assets\client\css\custom.css" />
+    <Content Include="Assets\client\css\etalage.css" />
+    <Content Include="Assets\client\css\form.css" />
+    <Content Include="Assets\client\css\style.css" />
+    <Content Include="Assets\client\font-awesome-4.6.3\css\font-awesome.css" />
+    <Content Include="Assets\client\font-awesome-4.6.3\css\font-awesome.min.css" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\client\font-awesome-4.6.3\HELP-US-OUT.txt" />
+    <Content Include="Assets\client\images\a-star.png" />
+    <Content Include="Assets\client\images\arrow1.png" />
+    <Content Include="Assets\client\images\arrow2.png" />
+    <Content Include="Assets\client\images\avatar.png" />
+    <Content Include="Assets\client\images\b-arrow.png" />
+    <Content Include="Assets\client\images\ba.jpg" />
+    <Content Include="Assets\client\images\baa.jpg" />
+    <Content Include="Assets\client\images\bag.jpg" />
+    <Content Include="Assets\client\images\bag1.jpg" />
+    <Content Include="Assets\client\images\bank_logo.png" />
+    <Content Include="Assets\client\images\bo.jpg" />
+    <Content Include="Assets\client\images\bott.jpg" />
+    <Content Include="Assets\client\images\bottle.jpg" />
+    <Content Include="Assets\client\images\ch.jpg" />
+    <Content Include="Assets\client\images\facebook.png" />
+    <Content Include="Assets\client\images\gpluse.png" />
+    <Content Include="Assets\client\images\img-sprite.png" />
+    <Content Include="Assets\client\images\label_new.png" />
+    <Content Include="Assets\client\images\logo.png" />
+    <Content Include="Assets\client\images\pi.jpg" />
+    <Content Include="Assets\client\images\pi1.jpg" />
+    <Content Include="Assets\client\images\pi2.jpg" />
+    <Content Include="Assets\client\images\pi3.jpg" />
+    <Content Include="Assets\client\images\pi4.jpg" />
+    <Content Include="Assets\client\images\pic.jpg" />
+    <Content Include="Assets\client\images\pic1.jpg" />
+    <Content Include="Assets\client\images\pic10.jpg" />
+    <Content Include="Assets\client\images\pic11.jpg" />
+    <Content Include="Assets\client\images\pic12.jpg" />
+    <Content Include="Assets\client\images\pic13.jpg" />
+    <Content Include="Assets\client\images\pic2.jpg" />
+    <Content Include="Assets\client\images\pic3.jpg" />
+    <Content Include="Assets\client\images\pic4.jpg" />
+    <Content Include="Assets\client\images\pic5.jpg" />
+    <Content Include="Assets\client\images\pic6.jpg" />
+    <Content Include="Assets\client\images\pic7.jpg" />
+    <Content Include="Assets\client\images\pic8.jpg" />
+    <Content Include="Assets\client\images\review.png" />
+    <Content Include="Assets\client\images\rss.png" />
+    <Content Include="Assets\client\images\s1.jpg" />
+    <Content Include="Assets\client\images\s2.jpg" />
+    <Content Include="Assets\client\images\s3.jpg" />
+    <Content Include="Assets\client\images\s4.jpg" />
+    <Content Include="Assets\client\images\sh.jpg" />
+    <Content Include="Assets\client\images\si1.jpg" />
+    <Content Include="Assets\client\images\si2.jpg" />
+    <Content Include="Assets\client\images\si3.jpg" />
+    <Content Include="Assets\client\images\si4.jpg" />
+    <Content Include="Assets\client\images\star.png" />
+    <Content Include="Assets\client\images\tick1.png" />
+    <Content Include="Assets\client\images\twitter.png" />
+    <Content Include="Assets\client\images\wa.jpg" />
+    <Content Include="Assets\client\images\wat.jpg" />
+    <Content Include="Assets\client\images\zoom.png" />
+    <Content Include="Assets\client\js\common.js" />
+    <Content Include="Assets\client\js\controllers\contact.js" />
+    <Content Include="Assets\client\js\controllers\shoppingCart.js" />
+    <Content Include="Assets\client\js\jquery.etalage.min.js" />
+    <Content Include="Assets\client\js\jquery.flexisel.js" />
+    <Content Include="Assets\client\js\jquery.min.js" />
+    <Content Include="Assets\client\js\jquery.wmuSlider.js" />
+    <Content Include="Assets\client\template\contact_template.html" />
+    <Content Include="Assets\client\template\newuser.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -5126,7 +5228,6 @@
     <Folder Include="app\shared\navigation\" />
     <Folder Include="app\shared\topbar\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -5447,6 +5548,48 @@
     <Content Include="Assets\admin\libs\toastr\toastr.js.map" />
     <Content Include="Assets\admin\libs\toastr\toastr.less" />
     <Content Include="Assets\admin\libs\toastr\toastr.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\client\font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\animated.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\core.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\icons.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\larger.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\list.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\path.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\less\variables.less" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\font-awesome.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="Assets\client\font-awesome-4.6.3\scss\_variables.scss" />
+    <Content Include="ConnectionStrings.config" />
+    <Content Include="AppSetting.config" />
+    <Content Include="Assets\admin\libs\angular\.bower.json" />
+    <Content Include="Assets\admin\libs\angular\angular.min.js.gzip" />
+    <Content Include="Assets\admin\libs\angular\angular.min.js.map" />
+    <Content Include="Assets\admin\libs\angular\bower.json" />
+    <Content Include="Assets\admin\libs\angular\LICENSE.md" />
+    <Content Include="Assets\admin\libs\angular\package.json" />
+    <Content Include="Assets\admin\libs\angular\README.md" />
     <None Include="packages.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -5528,7 +5671,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

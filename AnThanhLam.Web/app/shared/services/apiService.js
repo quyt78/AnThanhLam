@@ -1,4 +1,5 @@
-﻿/// <reference path="../assets/admin/libs/bower_components/angular/angular.js" />
+﻿/// <reference path="../../../assets/admin/libs/angular/angular.js" />
+
 (function (app) {
     app.factory('apiService', apiService);
 

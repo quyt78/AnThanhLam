@@ -1,4 +1,4 @@
-﻿/// <reference path="/Assets/admin/libs/angular/angular.js" />
+﻿/// <reference path="../../../assets/admin/libs/angular/angular.js" />
 
 (function () {
     angular.module('anthanhlam.application_users', ['anthanhlam.common']).config(config);
