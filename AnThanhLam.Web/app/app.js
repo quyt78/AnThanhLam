@@ -5,6 +5,8 @@
         ['anthanhlam.products',
             'anthanhlam.application_groups',
             'anthanhlam.product_categories',
+            'anthanhlam.brand',
+            'anthanhlam.size',
             'anthanhlam.application_roles',
             'anthanhlam.application_users',
             'anthanhlam.statistics',

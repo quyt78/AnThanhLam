@@ -6,26 +6,16 @@ using System.Web;
 
 namespace AnThanhLam.Web.Models
 {
-    public class ProductCategoryViewModel
+    public class SizeViewModel
     {
         public int ID { set; get; }
-
-        [Required(ErrorMessage = "Yêu cầu nhập tên danh mục")]
         public string Name { set; get; }
 
-        [Required(ErrorMessage = "Yêu cầu nhập tiêu đề SEO")]
-        public string Alias { set; get; }
-
-        public string Description { set; get; }
-
-        public int? ParentID { set; get; }
         public int? DisplayOrder { set; get; }
 
-        public string Image { set; get; }
+        public string Description { get; set; }
 
-        public bool? HomeFlag { set; get; }
-
-        public virtual IEnumerable<ProductViewModel> Products { set; get; }
+        public virtual IEnumerable<ProductViewModel> Products { get; set; }
 
         public DateTime? CreatedDate { set; get; }
 

@@ -279,10 +279,12 @@
     <Compile Include="Api\ApplicationGroupController.cs" />
     <Compile Include="Api\ApplicationRoleController.cs" />
     <Compile Include="Api\ApplicationUserController.cs" />
+    <Compile Include="Api\BrandController.cs" />
     <Compile Include="Api\HomeController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\SizeController.cs" />
     <Compile Include="Api\StatisticController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -312,6 +314,7 @@
     <Compile Include="Models\ApplicationGroupViewModel.cs" />
     <Compile Include="Models\ApplicationRoleViewModel.cs" />
     <Compile Include="Models\ApplicationUserViewModel.cs" />
+    <Compile Include="Models\BrandViewModel.cs" />
     <Compile Include="Models\ContactDetailViewModel.cs" />
     <Compile Include="Models\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\FeedbackViewModel.cs" />
@@ -329,6 +332,7 @@
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ShoppingCartViewModel.cs" />
+    <Compile Include="Models\SizeViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -370,6 +374,13 @@
     <Content Include="app\components\products\productListController.js" />
     <Content Include="app\components\products\productListView.html" />
     <Content Include="app\components\products\productAddView.html" />
+    <Content Include="app\components\brand\brand.module.js" />
+    <Content Include="app\components\brand\brandAddController.js" />
+    <Content Include="app\components\brand\brandAddView.html" />
+    <Content Include="app\components\brand\brandEditController.js" />
+    <Content Include="app\components\brand\brandEditView.html" />
+    <Content Include="app\components\brand\brandListController.js" />
+    <Content Include="app\components\brand\brandListView.html" />
     <Content Include="app\components\product_categories\productCategory.module.js" />
     <Content Include="app\components\product_categories\productCategoryAddController.js" />
     <Content Include="app\components\product_categories\productCategoryAddView.html" />

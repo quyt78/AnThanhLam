@@ -146,5 +146,39 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             appUser.UserName = appUserViewModel.UserName;
             appUser.PhoneNumber = appUserViewModel.PhoneNumber;
         }
+
+        public static void UpdateBrand(this Brand brand, BrandViewModel brandViewModel)
+        {
+            brand.ID = brandViewModel.ID;
+            brand.Name = brandViewModel.Name;
+            brand.Alias = brandViewModel.Alias;
+            brand.Description = brandViewModel.Description;
+            brand.HomeFlag = brandViewModel.HomeFlag;
+            brand.Image = brandViewModel.Image;
+
+            brand.CreatedDate = brandViewModel.CreatedDate;
+            brand.CreatedBy = brandViewModel.CreatedBy;
+            brand.UpdatedDate = brandViewModel.UpdatedDate;
+            brand.UpdatedBy = brandViewModel.UpdatedBy;
+            brand.MetaKeyword = brandViewModel.MetaKeyword;
+            brand.MetaDescription = brandViewModel.MetaDescription;
+            brand.Status = brandViewModel.Status;
+        }
+
+        public static void UpdateSize(this Size size, SizeViewModel sizeViewModel)
+        {
+            size.ID = sizeViewModel.ID;
+            size.Name = sizeViewModel.Name;
+            size.DisplayOrder = sizeViewModel.DisplayOrder;
+            size.Description = sizeViewModel.Description;
+
+            size.CreatedDate = sizeViewModel.CreatedDate;
+            size.CreatedBy = sizeViewModel.CreatedBy;
+            size.UpdatedDate = sizeViewModel.UpdatedDate;
+            size.UpdatedBy = sizeViewModel.UpdatedBy;
+            size.MetaKeyword = sizeViewModel.MetaKeyword;
+            size.MetaDescription = sizeViewModel.MetaDescription;
+            size.Status = sizeViewModel.Status;
+        }
     }
 }

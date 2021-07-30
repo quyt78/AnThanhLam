@@ -20,6 +20,8 @@ namespace AnThanhLam.Web.Mappings
                 cfg.CreateMap<ProductCategory, ProductCategoryViewModel>();
                 cfg.CreateMap<Product, ProductViewModel>();
                 cfg.CreateMap<ProductTag, ProductTagViewModel>();
+                cfg.CreateMap<Brand, BrandViewModel>();
+                cfg.CreateMap<Size, SizeViewModel>();
                 cfg.CreateMap<Footer, FooterViewModel>();
                 cfg.CreateMap<Slide, SlideViewModel>();
                 cfg.CreateMap<Page, PageViewModel>();

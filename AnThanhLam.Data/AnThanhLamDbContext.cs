@@ -25,6 +25,9 @@ namespace AnThanhLam.Data
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductTag> ProductTags { get; set; }
         public DbSet<Slide> Slides { get; set; }
+
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Size> Sizes { get; set; }
         public DbSet<SupportOnline> SupportOnlines { get; set; }
         public DbSet<SystemConfig> SystemConfigs { get; set; }
         public DbSet<Tag> Tags { get; set; }
