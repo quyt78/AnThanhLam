@@ -12,9 +12,10 @@ namespace AnThanhLam.Service
     public interface IPostService
     {
         void Add(Post post);
-        void Update(Post post);
-        void Delete(int id);
+        void Update(Post post);        
+        Post Delete(int id);
         IEnumerable<Post> GetAll();
+        IEnumerable<Post> GetAll(string keyword);
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
         Post GetById(int id);
         IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
@@ -23,28 +24,41 @@ namespace AnThanhLam.Service
     public class PostService : IPostService
     {
         IPostRepository _postRepository;
+        IPostTagRepository _postTagRepository;
+        ITagRepository _tagRepository;
         IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, ITagRepository tagRepository, IPostTagRepository postTagRepository, IUnitOfWork unitOfWork)
         {
             this._postRepository = postRepository;
+            this._postTagRepository = postTagRepository;
+            this._tagRepository = tagRepository;
             this._unitOfWork = unitOfWork;
         }
 
         public void Add(Post post)
-        {
-            _postRepository.Add(post);
+        {            
+            _postRepository.Add(post);                       
         }
 
-        public void Delete(int id)
+        public Post Delete(int id)
         {
-            _postRepository.Delete(id);
+            return _postRepository.Delete(id);
         }
 
         public IEnumerable<Post> GetAll()
         {
             return _postRepository.GetAll(new string[] { "PostCategory" });
         }
+
+        public IEnumerable<Post> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _postRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+            else
+                return _postRepository.GetAll();
+        }
+
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {

@@ -37,7 +37,7 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             productCategory.ParentID = productCategoryVm.ParentID;
             productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
             productCategory.Image = productCategoryVm.Image;
-            productCategory.HomeFlag = productCategoryVm.HomeFlag;
+            productCategory.HomeFlag = productCategoryVm.HomeFlag;           
 
             productCategory.CreatedDate = productCategoryVm.CreatedDate;
             productCategory.CreatedBy = productCategoryVm.CreatedBy;
@@ -58,6 +58,7 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             post.Content = postVm.Content;
             post.Image = postVm.Image;
             post.HomeFlag = postVm.HomeFlag;
+            post.HotFlag = postVm.HotFlag;
             post.ViewCount = postVm.ViewCount;
 
             post.CreatedDate = postVm.CreatedDate;
@@ -179,6 +180,25 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             size.MetaKeyword = sizeViewModel.MetaKeyword;
             size.MetaDescription = sizeViewModel.MetaDescription;
             size.Status = sizeViewModel.Status;
+        }
+
+
+        public static void UpdatePartner(this Partner partner, PartnerViewModel partnerViewModel)
+        {
+            partner.ID = partnerViewModel.ID;
+            partner.Name = partnerViewModel.Name;
+            partner.Alias = partnerViewModel.Alias;
+            partner.Description = partnerViewModel.Description;
+            partner.HomeFlag = partnerViewModel.HomeFlag;
+            partner.Image = partnerViewModel.Image;
+
+            partner.CreatedDate = partnerViewModel.CreatedDate;
+            partner.CreatedBy = partnerViewModel.CreatedBy;
+            partner.UpdatedDate = partnerViewModel.UpdatedDate;
+            partner.UpdatedBy = partnerViewModel.UpdatedBy;
+            partner.MetaKeyword = partnerViewModel.MetaKeyword;
+            partner.MetaDescription = partnerViewModel.MetaDescription;
+            partner.Status = partnerViewModel.Status;
         }
     }
 }

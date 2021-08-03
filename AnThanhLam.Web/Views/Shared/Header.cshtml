@@ -1,89 +1,372 @@
 ﻿@using Microsoft.AspNet.Identity;
-<div class="header">
-  <div class="top-header">
-    <div class="container">
-      <div class="top-header-left">
-        <ul class="support">
-          <li><a href="#"><label> </label></a></li>
-          <li><a href="#">24x7 live<span class="live"> support</span></a></li>
-        </ul>
-        <ul class="support">
-          <li class="van"><a href="#"><label> </label></a></li>
-          <li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
-        </ul>
-        <ul class="support">
-          <li><a href="#"><label> </label></a></li>
-          <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
-        </ul>
-        <ul class="support">
-          <li><a href="#"><label> </label></a></li>
-          <li><a href="/lien-he.html">Liên hệ</a></li>
-        </ul>
-        <div class="clearfix"> </div>
-      </div>
-      <div class="top-header-right">
-        <div class="down-top">
-          <select class="in-drop">
-            <option value="English" class="in-of">English</option>
-            <option value="Japanese" class="in-of">Japanese</option>
-            <option value="French" class="in-of">French</option>
-            <option value="German" class="in-of">German</option>
-          </select>
+<header class=" site-header">
+    <div class="header-top">
+        <div class=" top-widgets-left">
+            <div id="polylang-2" class="widget widget_polylang">
+                <label class=" screen-reader-text" for="lang_choice_polylang-2">Choose a language</label>
+                <select name="lang_choice_polylang-2" id="lang_choice_polylang-2">
+                    <option value="vi" selected="selected">Vietnam</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
         </div>
-        <div class="down-top top-down">
-          <select class="in-drop">
+        <div class=" top-widgets-right">
+            <div id=" custom_html-2" class="widget_text widget widget_custom_html">
+                <div class=" textwidget custom-html-widget">
+                    MON-SAT: <a href=" tel:+496170961709" class=" tz-white">8:00AM-6:30PM</a>
+                </div>
+            </div>
+            <div id=" custom_html-3" class="widget_text widget widget_custom_html">
+                <div class=" textwidget custom-html-widget">
+                    CALL US: <a href=" tel:+496170961709" class=" tz-white">0 (800) 423-754</a>
+                </div>
+            </div>
+            <div id=" tz_login_register-1" class="widget widget_tz_login_register">
+                <div class=" tz-login-heading clickable inline">
 
-            <option value="Dollar" class="in-of">Dollar</option>
-            <option value="Yen" class="in-of">Yen</option>
-            <option value="Euro" class="in-of">Euro</option>
-          </select>
+                    @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+                    {
+                        if (Request.IsAuthenticated)
+                        {
+                            @Html.AntiForgeryToken()
+                            <p class="logged-in-as"><span> Hello. @User.Identity.GetUserName()</span></p>
+                        }
+                        else
+                        {
+                            <i class="user-icon">
+                            </i>
+                            <span class=" tz-login-actions">
+                                <a class="login-button" id=" show_login_form" href="/dang-nhap.html">ĐĂNG NHẬP</a>
+                                <span class=" delimiter">|</span>
+                                <a class="login-button" id=" show_register_form" href="/dang-ky.html">ĐĂNG KÝ</a>
+                            </span>
+                        }
+                    }
+                </div>
+
+
+                <div class="cart"><a href="/gio-hang.html"><span> </span>GIỎ HÀNG</a></div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
         </div>
-        <!---->
-        <div class="clearfix"> </div>
-      </div>
-      <div class="clearfix"> </div>
-    </div>
-  </div>
-  <div class="bottom-header">
-    <div class="container">
-      <div class="header-bottom-left">
-        <div class="logo">
-          <a href="/"><img src="/Assets/client/images/logo.png" alt="" /></a>
+    </div>  
+    <div class=" site-branding">
+        <div class=" site-logo" itemscope="" itemtype="http://schema.org/Organization">
+            <a href="#" rel="home" title=" chromium Tires" itemprop="url">
+                <img width="392" height="58" src="~/Assets/client/images/logo_tires.png" class=" attachment-full size-full" alt="" loading="lazy" srcset="~/Assets/client/images/logo_tires.png 392w, ~/Assets/client/images/logo_tires.-300x44.png 300w, ~/Assets/client/images/logo_tires.-384x58.png 384w, ~/Assets/client/images/logo_tires.-64x9.png 64w" sizes="(max-width: 392px) 100vw, 392px" />
+            </a>
         </div>
-        <div class="search">
-          <form method="get" action="/tim-kiem.html">
-            <input type="text" id="txtKeyword" name="keyword" placeholder="Từ khóa">
-            <input type="submit" value="Tìm kiếm" id="btnSearch">
-          </form>
+        <div class="hgroup-sidebar">
+            <div id=" tz_search-1" class="widget widget_tz_search">
+                <div id=" search-but" class=" tire-search-button"></div>
+                <form class=" tz-searchform" method="get" action="/tires">
+                    <div class=" search-close"></div>
+                    <input id=" s" name=" s" type=" text" class=" search-text" value="" placeholder=" search by title, brand, category..." tabindex="1" />
+                    <button id=" searchsubmit" class=" search-button" title="Find" tabindex="2">
+                        <i class=" chromium-icon-search-bold" aria-hidden=" true">
+                        </i>
+                    </button>
+                </form>
+            </div>
+            <div id=" tz_woo_cart-1" class="widget widget_tz_shopping_cart">
+                <div class="heading">
+                    <div class="widget-heading">
+                        Shopping Cart <span class=" subtotal">
+                            <span class="woocommerce-Price-amount amount">
+                                <bdi>
+                                    <span class="woocommerce-Price-currencySymbol">£</span>0.00
+                                </bdi>
+                            </span>
+                        </span>
+                    </div>
+                    <span class=" cart-count-wrapper">0</span>
+                </div>
+                <div class="widget_shopping_cart_content">
+                    <h3 class="mini-cart-heading">My Shopping Cart</h3>
+                    <p class="woocommerce-mini-cart__empty-message"> No products in the cart. </p>
+                </div>
+            </div>
         </div>
-        <div class="clearfix"> </div>
-      </div>
-      <div class="header-bottom-right">
-        @using (Html.BeginForm("LogOut", "Account", FormMethod.Post,new { @id="frmLogout"}))
-        {
-          if (Request.IsAuthenticated)
-          {
-                @Html.AntiForgeryToken()
-                <ul class="login">
-                  <li><a href="/tai-khoan.html"><span> </span>Xin chào: @User.Identity.GetUserName()</a></li> |
-                  <li><a href="#" id="btnLogout">Thoát</a></li>
+        <nav id="logo-navigation" class="logo-group-nav logo-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"> Menu </button>
+            <a class=" screen-reader-text skip-link" href="#content">Skip to content</a>
+            <div id="mega-menu-wrap-logo-group-nav" class="mega-menu-wrap">
+                <div class="mega-menu-toggle">
+                    <div class="mega-toggle-blocks-left"></div>
+                    <div class="mega-toggle-blocks-center">
+                        <div class="mega-toggle-block mega-menu-toggle-block mega-toggle-block-1" id="mega-toggle-block-1" tabindex="0">
+                            <span class="mega-toggle-label" role="button" aria-expanded="false">
+                                <span class="mega-toggle-label-closed">MENU</span>
+                                <span class="mega-toggle-label-open">MENU</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mega-toggle-blocks-right"></div>
+                </div>
+                <ul id="mega-menu-logo-group-nav" class="mega-menu max-mega-menu mega-menu-horizontal nav-menu" data-event="hover_intent" data-effect="fade_up" data-effect-speed="200" data-effect-mobile=" disabled" data-effect-speed-mobile="0" data-mobile-force-width="false" data-second-click=" close" data-document-click=" collapse" data-vertical-behaviour=" standard" data-breakpoint="768" data-unbind=" true" data-mobile-state=" collapse_all" data-hover-intent-timeout="300" data-hover-intent-interval="100" aria-expanded="false">
+                    <li class="mega-departments-link mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-left mega-menu-megamenu mega-menu-item-3592" id="mega-menu-item-3592">
+                        <a title="												" class="mega-menu-link" href="#" aria-haspopup=" true" aria-expanded="false" tabindex="0">
+                            Departments<span class="mega-indicator" data-has-click-event=" true">
+                            </span>
+                        </a>
+                        <ul class="mega-sub-menu">
+                            <li class="mega-menu-item mega-menu-item-type-widget widget_tz_shortcode mega-menu-columns-6-of-6 mega-menu-item-tz_shortcode-2" id="mega-menu-item-tz_shortcode-2">
+                                <div class="output-shortcode">
+                                    <div data-elementor-type=" section" data-elementor-id="3646" class="elementor elementor-3646" data-elementor-settings="[]">
+                                        <div class="elementor-inner">
+                                            <div class="elementor-section-wrap">
+                                                <section class="elementor-section elementor-top-section elementor-element elementor-element-fc1deea elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fc1deea" data-element_type=" section">
+                                                    <div class="elementor-container elementor-column-gap-default">
+                                                        <div class="elementor-row">
+                                                            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fb20995" data-id="fb20995" data-element_type=" column">
+                                                                <div class="elementor-column-wrap elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-ae8d551 elementor-widget elementor-widget-tz-woo-categories-menu" data-id=" ae8d551" data-element_type="widget" data-widget_type=" tz-woo-categories-menu.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class=" tz-categories-menu">
+                                                                                    <h5 class=" tz-category">
+                                                                                        <a href="#">Trailer tires</a>
+                                                                                    </h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#">All-Terrain Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">Golf Carts Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/trailer-tires/lawn-garden-tractor-tires/">Lawn and garden Tractor tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/trailer-tires/mud-terrain-tires/">Mud Terrain Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/trailer-tires/wheels/">Wheel</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/trailer-tires/winter-wheels/">Winter Wheels</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="elementor-element elementor-element-b01c787 elementor-widget elementor-widget-tz-woo-categories-menu" data-id="b01c787" data-element_type="widget" data-widget_type=" tz-woo-categories-menu.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class=" tz-categories-menu">
+                                                                                    <h5 class=" tz-category">
+                                                                                        <a href="#">Wheels and Tires</a>
+                                                                                    </h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="#">Custom Wheels</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">Factory Wheels</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">Tire Chains</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#">Wheel Covers</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-0561486" data-id="0561486" data-element_type=" column">
+                                                                <div class="elementor-column-wrap elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-041ebab elementor-widget elementor-widget-tz-woo-categories-menu" data-id="041ebab" data-element_type="widget" data-widget_type=" tz-woo-categories-menu.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class=" tz-categories-menu">
+                                                                                    <h5 class=" tz-category">
+                                                                                        <a href="/tires/product-category/wheels-and-tires/">Wheels and Tires</a>
+                                                                                    </h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/wheels-and-tires/custom-wheels/">Custom Wheels</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/wheels-and-tires/factory-wheels/">Factory Wheels</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/wheels-and-tires/tire-chains/">Tire Chains</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/wheels-and-tires/tires/">Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/wheels-and-tires/wheel-covers/">Wheel Covers</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="elementor-element elementor-element-0115057 elementor-widget elementor-widget-tz-woo-categories-menu" data-id="0115057" data-element_type="widget" data-widget_type=" tz-woo-categories-menu.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class=" tz-categories-menu">
+                                                                                    <h5 class=" tz-category">
+                                                                                        <a href="/tires/product-category/tiller-tires/">Tiller Tires</a>
+                                                                                    </h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/camper-tires/">Camper Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/mishelin-tires/">Mishelin Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/nitro-tires/">Nitro Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/performance-chips/">Performance Chips</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/suspension-systems/">Suspension Systems</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/tiller-tires/tojo-tires/">Tojo Tires</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-1802101" data-id="1802101" data-element_type=" column">
+                                                                <div class="elementor-column-wrap elementor-element-populated">
+                                                                    <div class="elementor-widget-wrap">
+                                                                        <div class="elementor-element elementor-element-f03dc6d elementor-widget elementor-widget-tz-woo-categories-menu" data-id="f03dc6d" data-element_type="widget" data-widget_type=" tz-woo-categories-menu.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class=" tz-categories-menu">
+                                                                                    <h5 class=" tz-category">
+                                                                                        <a href="/tires/product-category/uncategorized/">Main Tires</a>
+                                                                                    </h5>
+                                                                                    <ul>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/uncategorized/33-inch-tires/">33-inch Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/uncategorized/35-inch-tires/">35-inch Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/uncategorized/37-inch-tires/">37-inch Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/uncategorized/40-inch-tires/">40-inch Tires</a>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="/tires/product-category/uncategorized/riding-lawn-mower-tires/">Riding Lawn Mower Tires</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="elementor-element elementor-element-24faf00 elementor-widget elementor-widget-image" data-id="24faf00" data-element_type="widget" data-widget_type="image.default">
+                                                                            <div class="elementor-widget-container">
+                                                                                <div class="elementor-image">
+                                                                                    <img width="500" height="500" src="~/Assets/client/images/wheel-set-1.png" class=" attachment-large size-large" alt="" loading="lazy" srcset="~/Assets/client/images/wheel-set-1.png 500w, ~/Assets/client/images/wheel-set-1-150x150.png 150w, ~/Assets/client/images/wheel-set-1-300x300.png 300w, ~/Assets/client/images/wheel-set-1-350x350.png 350w, ~/Assets/client/images/wheel-set-1-100x100.png 100w, ~/Assets/client/images/wheel-set-1-64x64.png 64w" sizes="(max-width: 500px) 100vw, 500px" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-current-menu-item mega-page_item mega-page-item-701 mega-current_page_item mega-align-bottom-left mega-menu-flyout mega-menu-item-3591" id="mega-menu-item-3591">
+                        <a title="												" class="mega-menu-link" href="#" tabindex="0">Home</a>
+                    </li>
+                    <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-menu-item-3973" id="mega-menu-item-3973">
+                        <a class="mega-menu-link" href="/tires/shop/" aria-haspopup=" true" aria-expanded="false" tabindex="0">
+                            Shop<span class="mega-indicator" data-has-click-event=" true">
+                            </span>
+                        </a>
+                        <ul class="mega-sub-menu">
+                            <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3977" id="mega-menu-item-3977">
+                                <a class="mega-menu-link" href="#">Gallery</a>
+                            </li>
+                            <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3978" id="mega-menu-item-3978">
+                                <a class="mega-menu-link" href="#">My account</a>
+                            </li>
+                            <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3982" id="mega-menu-item-3982">
+                                <a class="mega-menu-link" href="#">Typography</a>
+                            </li>
+                            <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-3983" id="mega-menu-item-3983">
+                                <a class="mega-menu-link" href="#">Wishlist</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-3603" id="mega-menu-item-3603">
+                        <a title="												" class="mega-menu-link" href="#/about/" tabindex="0">About Us</a>
+                    </li>
+                    <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-3938" id="mega-menu-item-3938">
+                        <a class="mega-menu-link" href="/tires/blog/" tabindex="0">Blog</a>
+                    </li>
+                    <li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-menu-item-3593" id="mega-menu-item-3593">
+                        <a title="												" class="mega-menu-link" href="#/contacts/" tabindex="0">Contacts</a>
+                    </li>
                 </ul>
-
-          }
-          else
-          {
-                <ul class="login">
-                  <li><a href="/dang-nhap.html"><span> </span>ĐĂNG NHẬP</a></li> |
-                  <li><a href="/dang-ky.html">ĐĂNG KÝ</a></li>
-                </ul>
-          }
-        }
-
-
-        <div class="cart"><a href="/gio-hang.html"><span> </span>GIỎ HÀNG</a></div>
-        <div class="clearfix"> </div>
-      </div>
-      <div class="clearfix"> </div>
+            </div>
+        </nav>
     </div>
-  </div>
-</div>
+    <div class="home-header-static-hero-block">
+        <div data-elementor-type=" section" data-elementor-id="3622" class="elementor elementor-3622" data-elementor-settings="[]">
+            <div class="elementor-inner">
+                <div class="elementor-section-wrap">
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-bcf833f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bcf833f" data-element_type=" section">
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div class="elementor-row">
+                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d13ea3e" data-id=" d13ea3e" data-element_type=" column">
+                                    <div class="elementor-column-wrap elementor-element-populated">
+                                        <div class="elementor-widget-wrap">
+                                            <div class="elementor-element elementor-element-847657d elementor-widget elementor-widget-heading" data-id="847657d" data-element_type="widget" data-widget_type="heading.default">
+                                                <div class="elementor-widget-container">
+                                                    <h2 class="elementor-heading-title elementor-size-default"> A new Level of Comfort </h2>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-1da167e elementor-widget elementor-widget-heading" data-id="1da167e" data-element_type="widget" data-widget_type="heading.default">
+                                                <div class="elementor-widget-container">
+                                                    <h3 class="elementor-heading-title elementor-size-default"> Tested for your Safety </h3>
+                                                </div>
+                                            </div>
+                                            <div class="elementor-element elementor-element-e2bfeb2 elementor-widget elementor-widget-text-editor" data-id="e2bfeb2" data-element_type="widget" data-widget_type=" text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="elementor-text-editor elementor-clearfix">
+                                                        <ul>
+                                                            <li>Free Ground Shipping &amp; Handling</li>
+                                                            <li>Price Match Guarantee</li>
+                                                            <li>Hassle-Free Returns</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+

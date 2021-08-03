@@ -33,7 +33,7 @@
                     notificationService.displayError('Cập nhật không thành công.');
                 });
         }
-        function loadParentCategory() {
+        function loadParentBrand() {
             apiService.get('/api/brand/getallparents', null, function (result) {
                 $scope.parentCategories = result.data;
             }, function () {
@@ -41,7 +41,7 @@
             });
         }
 
-        loadParentCategory();
+        loadParentBrand();
         loadBrandDetail();
     }
 

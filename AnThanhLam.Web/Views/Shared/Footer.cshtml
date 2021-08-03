@@ -1,32 +1,171 @@
 ﻿@model AnThanhLam.Web.Models.FooterViewModel
-<div class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="latter">
-        <h6>Đăng ký nhận thư</h6>
-        <div class="sub-left-right">
-          <form>
-            <input type="text" placeholder="Nhập email tại đây" />
-            <input type="submit" value="Gửi" />
-          </form>
+<@*div class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="latter">
+                <h6>Đăng ký nhận thư</h6>
+                <div class="sub-left-right">
+                    <form>
+                        <input type="text" placeholder="Nhập email tại đây" />
+                        <input type="submit" value="Gửi" />
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="latter-right">
+                <p>Theo dõi:</p>
+                <ul class="face-in-to">
+                    <li><a href="#"><span> </span></a></li>
+                    <li><a href="#"><span class="facebook-in"> </span></a></li>
+                    <div class="clearfix"> </div>
+                </ul>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
-      </div>
-      <div class="latter-right">
-        <p>Theo dõi:</p>
-        <ul class="face-in-to">
-          <li><a href="#"><span> </span></a></li>
-          <li><a href="#"><span class="facebook-in"> </span></a></li>
-          <div class="clearfix"> </div>
-        </ul>
-        <div class="clearfix"> </div>
-      </div>
-      <div class="clearfix"> </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      @Html.Raw(Model.Content)
+    <div class="footer-bottom">
+        <div class="container">
+            @Html.Raw(Model.Content)
+        </div>
     </div>
-  </div>
-</div>
+</div>*@
+<footer class=" site-footer" role=" contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+    <aside class="footer-widgets">
+        <div class="widget-area col-1">
+            <section id=" tz_contacts-1" class="widget widget_tz_contacts">
+                <ul itemprop=" sourceOrganization" itemscope="itemscope" itemtype="http://schema.org/LocalBusiness">
+                    <li class="option-title a-logo">
+                        <div class="logo">                           
+                            <img src="~/Assets/client/images/logo_tires.png" itemprop="logo/>
+                        </div>
+                    </li>
+                    <li class="option-title a-address">
+                        <div class=" address" itemprop=" address">
+                            <span class="label">Address: </span>
+                            <span style=" color: #fff; font-weight: 500">
+                                Chromium Co , 25 Silicon Road,<br />London D04 89GR<span>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="option-title a-phone">
+                        <div class="phone" itemprop=" telephone">
+                            <span class="label">Phone: </span>
+                            <span style=" color: #fff; font-weight: 500">+27 34 66 2455-198</span>
+                            <br />Mon-Fri 8:00 to 19:00
+                        </div>
+                    </li>
+                    <li class="option-title a-email">
+                        <div class="email" itemprop="email">
+                            <span class="label">E-mail: </span>
+                            <a title="Email us" href="mailto:example@example.com">example@example.com</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="widget-area col-2">
+            <section id="meta-3" class="widget widget_meta">
+                <h3 class="widget-title" itemprop=" name">INFORMATION</h3>
+                <ul>
+                    <li>
+                        <a href="/tires/wp-login.php">Log in</a>
+                    </li>
+                    <li>
+                        <a href="/tires/feed/">Entries feed</a>
+                    </li>
+                    <li>
+                        <a href="/tires/comments/feed/">Comments feed</a>
+                    </li>
+                    <li>
+                        <a href="https://wordpress.org/">WordPress.org</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="widget-area col-3">
+            <section id=" nav_menu-3" class="widget widget_nav_menu">
+                <h3 class="widget-title" itemprop=" name">HELP &amp; SUPPORT</h3>
+                <div class="menu-help-support-container">
+                    <ul id="menu-help-support" class="menu">
+                        <li id="menu-item-3987" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3987">
+                            <a href="/tires/contacts/">Contacts</a>
+                        </li>
+                        <li id="menu-item-3988" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3988">
+                            <a href="/tires/wishlist/">Wishlist</a>
+                        </li>
+                        <li id="menu-item-3989" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3989">
+                            <a href="/tires/my-account/">My account</a>
+                        </li>
+                        <li id="menu-item-3990" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3990">
+                            <a href="/tires/cart/">Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="widget-area col-4">
+            <section id=" tz_pay_icons-1" class="widget widget_tz_pay_icons">
+                <h3 class="widget-title" itemprop=" name">We Accept:</h3>
+                <ul class="inline-mode icons-small">
+                    <li class="payment-icon">
+                        <img src="~/Assets/client/images/americanexpress-icon-sm.png" alt=" american Express" />
+                    </li>
+                    <li class="payment-icon">
+                        <img src="~/Assets/client/images/maestro-icon-sm.png" alt="Maestro" />
+                    </li>
+                    <li class="payment-icon">
+                        <img src="~/Assets/client/images/mastercard-icon-sm.png" alt="MasterCard" />
+                    </li>
+                    <li class="payment-icon">
+                        <img src="~/Assets/client/images/paypal-icon-sm.png" alt="PayPal" />
+                    </li>
+                    <li class="payment-icon">
+                        <img src="~/Assets/client/images/visa-icon-sm.png" alt="Visa" />
+                    </li>
+                </ul>
+            </section>
+            <section id=" tz_socials-2" class="widget widget_tz_socials">
+                <h3 class="widget-title" itemprop=" name">Join Us:</h3>
+                <ul class="inline-mode rectangles icons-small">
+                    <li class=" social-network">
+                        <a href="#" target="_blank" title=" connect us">
+                            <i class="fa fa-facebook">
+                            </i>
+                        </a>
+                    </li>
+                    <li class=" social-network">
+                        <a href="#" target="_blank" title=" connect us">
+                            <i class="fa fa-twitter">
+                            </i>
+                        </a>
+                    </li>
+                    <li class=" social-network">
+                        <a href="#" target="_blank" title=" connect us">
+                            <i class="fa fa-google-plus">
+                            </i>
+                        </a>
+                    </li>
+                    <li class=" social-network">
+                        <a href="#" target="_blank" title=" connect us">
+                            <i class="fa fa-instagram">
+                            </i>
+                        </a>
+                    </li>
+                    <li class=" social-network">
+                        <a href="#" target="_blank" title=" connect us">
+                            <i class="fa fa-pinterest">
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </aside>
+    <div class=" site-info">
+        Copyright ©&nbsp;<span itemprop=" copyrightYear">2021</span>&nbsp; <span itemprop=" copyrightHolder">
+            Chromium Auto Parts by <a href="https://themes.zone/" rel=" nofollow" target="_blank">Themes Zone</a> Car Logos by <a href="https://www.freepik.com/" rel=" nofollow" target="_blank">FreePik</a> | Icons made by <a href="https://www.freepik.com/" title="Freepik" rel=" nofollow" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" rel=" nofollow" target="_blank">www.flaticon.com</a>
+        </span>
+    </div>
+</footer>

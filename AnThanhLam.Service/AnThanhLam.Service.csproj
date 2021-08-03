@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="ApplicationGroupService.cs" />
     <Compile Include="ApplicationRoleService.cs" />
+    <Compile Include="PartnerService.cs" />
     <Compile Include="BrandService.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="ContactDetailService.cs" />

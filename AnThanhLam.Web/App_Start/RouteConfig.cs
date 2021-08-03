@@ -73,6 +73,18 @@ namespace AnThanhLam.Web
                  defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional, alias = UrlParameter.Optional },
                    namespaces: new string[] { "AnThanhLam.Web.Controllers" }
              );
+            routes.MapRoute(
+                 name: "post category",
+                 url: "{alias}_pc-{id}.html",
+                 defaults: new { controller = "PostCategories", action = "Category", id = UrlParameter.Optional, alias = UrlParameter.Optional },
+                   namespaces: new string[] { "AnThanhLam.Web.Controllers" }
+             );
+            routes.MapRoute(
+                 name: "Bai viet",
+                 url: "{alias}_post-{postId}.html",
+                 defaults: new { controller = "Post", action = "PostDetail", id = UrlParameter.Optional, alias = UrlParameter.Optional },
+                   namespaces: new string[] { "AnThanhLam.Web.Controllers" }
+             );
 
             routes.MapRoute(
                  name: "Product",

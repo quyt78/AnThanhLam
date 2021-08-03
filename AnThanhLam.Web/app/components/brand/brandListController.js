@@ -7,6 +7,7 @@
 
     function brandListController($scope, apiService, notificationService, $ngBootbox, $filter ) {
         $scope.brand = [];
+        $scope.loading = true;
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getBrand = getBrand;
@@ -50,15 +51,15 @@
             }
         }
 
-        $scope.$watch("data", function (n, o) {
-            var checked = $filter("filter")(n, { checked: true });
-            if (checked.length) {
-                $scope.selected = checked;
-                $('#btnDelete').removeAttr('disabled');
-            } else {
-                $('#btnDelete').attr('disabled', 'disabled');
-            }
-        }, true);
+        //$scope.$watch("data", function (n, o) {
+        //    var checked = $filter("filter")(n, { checked: true });
+        //    if (checked.length) {
+        //        $scope.selected = checked;
+        //        $('#btnDelete').removeAttr('disabled');
+        //    } else {
+        //        $('#btnDelete').attr('disabled', 'disabled');
+        //    }
+        //}, true);
 
         function deleteBrand(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?')
@@ -84,6 +85,7 @@
 
         function getBrand(page) {
             page = page || 0;
+            $scope.loading = true;
             var config = {
                 params: {
                     keyword: $scope.keyword,
@@ -98,6 +100,7 @@
                 else {
                     notificationService.displaySuccess('Đã tìm thấy ' + result.data.TotalCount + ' bản ghi');
                 }
+                $scope.loading = false;
                 $scope.brand = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pageCount = result.data.TotalPages;

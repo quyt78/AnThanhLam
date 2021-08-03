@@ -14,6 +14,16 @@
             $scope.brand.Alias = commonService.getSeoTitle($scope.brand.Name);
         }
 
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.brand.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
+
         $scope.AddBrand = AddBrand;
 
         function AddBrand() {

@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 
 namespace AnThanhLam.Web.Api
 {
+    [RoutePrefix("api/size")]
     public class SizeController : ApiControllerBase
     {
         #region Initialize

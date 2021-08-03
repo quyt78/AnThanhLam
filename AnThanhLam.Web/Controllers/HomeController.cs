@@ -79,5 +79,12 @@ namespace AnThanhLam.Web.Controllers
             var listProductCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
             return PartialView(listProductCategoryViewModel);
         }
+
+
+        public ActionResult ShortCode()
+        {
+            return PartialView();
+        }
+
     }
 }

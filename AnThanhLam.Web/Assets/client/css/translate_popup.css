@@ -1,0 +1,229 @@
+.translationcontainer___extension * {
+    box-sizing: content-box !important;
+}
+
+.translationcontainer___extension {
+    position: fixed !important;
+    text-align: left !important;
+    background: #007997 !important;
+    color: #ffffff !important;
+    max-width: 400px !important;
+    min-width: 200px !important;
+    padding: 10px !important;
+    font-family: Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    z-index: 99999999999999 !important;
+    box-shadow: 2px 1px 16px 0px rgba(0, 0, 0, 0.75) !important;
+}
+
+.sentences___extension, .dictblock___extension {
+    color: #ffffff !important;
+}
+
+.example___extension {
+    color: #D7EF00 !important;
+    margin-top: 2px !important;
+}
+
+.entry___extension li {
+    list-style-type: disc !important;
+    margin-left: 20px !important;
+    margin-top: 5px !important;
+}
+
+ul.entry___extension {
+    font-size: 12px !important;
+}
+
+.dictblock___extension {
+    margin-top: 5px !important;
+}
+
+.detected-language___extension {
+    text-align: right !important;
+    font-size: 11px !important;
+    color: #E5E5E5 !important;
+    margin-top: 10px !important;
+    line-height: 28px !important;
+    right: 0 !important;
+    position: absolute !important;
+}
+
+.speakerimg___extension, .addbuttonimg___extension {
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 1px 1px;
+    cursor: pointer !important;
+    padding: 5px !important;
+    float: left !important;
+}
+
+.addbuttonimg___extension {
+    margin-right: 10px !important;
+}
+
+.speakerimg___extension {
+    background: url('chrome-extension://__MSG_@@extension_id__/icons/volume-white.png') no-repeat center;
+}
+
+.addbuttonimg___extension {
+    background: url('chrome-extension://__MSG_@@extension_id__/icons/add-white.png') no-repeat center;
+}
+
+.speakerimg___extension.checked___extension, .addbuttonimg___extension.checked___extension {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1) !important;
+    border: 1px solid #c6c6c6 !important;
+    margin: 0px 9px -1px -1px !important;
+}
+
+.addbuttonimg___extension.checked___extension {
+    background: url('chrome-extension://__MSG_@@extension_id__/icons/saved-white.png') no-repeat center;
+}
+
+.addbuttonimg___extension:hover, .speakerimg___extension:hover {
+    opacity: 0.9;
+}
+
+.bottom___extension {
+    height: 30px !important;
+    margin-top: 5px !important;
+    position: relative !important;
+    min-width: 230px !important;
+}
+
+.origsentences___extension {
+    display: none !important;
+}
+
+
+/*================================
+=            Reminder            =
+================================*/
+
+.reminder___extension {
+    position: fixed !important;
+    text-align: left !important;
+    background: rgb(0, 121, 151) !important;
+    width: 220px !important;
+    padding: 10px 10px 0px 10px !important;
+    line-height: 1.2 !important;
+    z-index: 99999999999999 !important;
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    box-shadow: rgba(0, 0, 0, 0.74902) 2px 1px 16px 0px !important;
+}
+
+.reminder___extension {
+    box-sizing: content-box !important;
+}
+
+.reminder___extension * {
+    color: #ffffff !important;
+    font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.reminder___extension .header___extension {
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+}
+
+.reminder___extension .srctext___extension {
+    margin-right: 32px !important;
+}
+
+.reminder___extension .header-btn___extension {
+    cursor: pointer !important;
+    -webkit-user-select: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    border: 1px solid #0F667C !important;
+    text-align: center !important;
+    line-height: 16px !important;
+    float: left !important;
+}
+
+.reminder___extension .header-btn___extension:hover {
+    background: #2A8399 !important;
+}
+
+.reminder___extension .detail___extension {
+    display: none;
+}
+
+.reminder___extension .separator___extension {
+    margin: 5px -10px 0 -10px !important;
+    border: 1px solid #016680 !important;
+}
+
+.reminder___extension .dsttext___extension {
+    margin-top: 5px !important;
+}
+
+.reminder___extension .sag___extension {
+    float: right !important;
+}
+
+.reminder___extension .sol___extension {
+    float: left !important;
+}
+
+.reminder___extension .dstlang___extension {
+    text-align: right !important;
+}
+
+.reminder___extension .detail-bottom___extension {
+    margin-top: 5px !important;
+    font-size: 10px !important;
+}
+
+.reminder___extension .expander___extension {
+    cursor: pointer !important;
+    margin: 5px -10px 0 -10px !important;
+    height: 15px !important;
+    background: #023D4C !important;
+    color: #fff !important;
+    padding: 2px !important;
+    text-align: center !important;
+    border-radius: 0 0 5px 0px !important;
+}
+
+.reminder___extension .expander___extension:hover {
+    background: #022C37 !important;
+}
+
+.reminder___extension .dots___extension {
+    font-weight: bold !important;
+    font-size: 25px !important;
+    margin-top: -8px !important;
+    margin-right: -2px !important;
+    margin-left: -2px !important;
+    display: block !important;
+    font-family: monospace !important;
+    letter-spacing: -5px !important;
+    -webkit-user-select: none !important;
+    text-align: center !important;
+}
+
+.reminder___extension progress {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
+    border: none !important;
+    background-size: auto !important;
+    height: 8px !important;
+}
+
+.reminder___extension progress::-webkit-progress-bar {
+    background: #fff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset !important;
+}
+
+.reminder___extension progress[value]::-webkit-progress-value {
+    background: green !important;
+}
+
+
+/*-----  End of Reminder  ------*/
