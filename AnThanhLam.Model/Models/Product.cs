@@ -27,10 +27,7 @@ namespace AnThanhLam.Model.Models
         public int CategoryID { set; get; }
 
         [Required]
-        public int BrandID { get; set; }
-        
-        
-        public int? SizeID { get; set; }
+        public int BrandID { get; set; }                        
 
         [MaxLength(256)]
         public string Image { set; get; }
@@ -54,6 +51,8 @@ namespace AnThanhLam.Model.Models
 
         public string Tags { set; get; }
 
+        public string Sizes { get; set; }
+
         public int Quantity { set; get; }
 
         public decimal OriginalPrice { set; get; }
@@ -61,7 +60,7 @@ namespace AnThanhLam.Model.Models
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { set; get; }
                
-        public virtual IEnumerable<Size> Sizes { get; set; }
+        public virtual IEnumerable<ProductSize> ProductSizes { get; set; }
 
         [ForeignKey("BrandID")]
         public virtual Brand Brand { get; set; }

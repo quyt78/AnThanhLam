@@ -8,8 +8,10 @@ namespace AnThanhLam.Web.Models
 {
     public class SizeViewModel
     {
-        public int ID { set; get; }
+        public string ID { set; get; }
         public string Name { set; get; }
+
+        public string Type { get; set; }
 
         public int? DisplayOrder { set; get; }
 

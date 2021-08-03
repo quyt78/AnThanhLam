@@ -13,8 +13,9 @@ namespace AnThanhLam.Model.Models
     public class Size : Auditable
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { set; get; }
+        [MaxLength(50)]
+        [Column(TypeName = "varchar")]
+        public string ID { set; get; }
 
         [Required]
         [MaxLength(256)]
@@ -24,6 +25,8 @@ namespace AnThanhLam.Model.Models
 
         [MaxLength(500)]
         public string Description { get; set; }
+
+        public string Type { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
     }

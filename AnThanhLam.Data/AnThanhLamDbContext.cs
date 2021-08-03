@@ -33,6 +33,7 @@ namespace AnThanhLam.Data
         public DbSet<SupportOnline> SupportOnlines { get; set; }
         public DbSet<SystemConfig> SystemConfigs { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
         public DbSet<ApplicationGroup> ApplicationGroups { set; get; }

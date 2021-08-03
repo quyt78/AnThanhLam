@@ -43,6 +43,15 @@
                 console.log('Cannot get list parent');
             });
         }
+
+        function loadBrand() {
+            apiService.get('/api/brand/getallparents', null, function (result) {
+                $scope.Brands = result.data;
+            }, function () {
+                console.log('Cannot get list parent');
+            });
+        }
+
         $scope.ChooseImage = function () {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
@@ -62,6 +71,7 @@
             }
             finder.popup();
         }
+        loadBrand();
         loadProductCategory();
         loadProductDetail();
     }

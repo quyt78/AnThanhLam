@@ -28,9 +28,9 @@ namespace AnThanhLam.Web.Api
 
         #endregion
 
-        [Route("getbyid/{id:int}")]
+        [Route("getbyid/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetById(HttpRequestMessage request, int id)
+        public HttpResponseMessage GetById(HttpRequestMessage request, string id)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -150,7 +150,7 @@ namespace AnThanhLam.Web.Api
         [Route("delete")]
         [HttpDelete]
         [AllowAnonymous]
-        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        public HttpResponseMessage Delete(HttpRequestMessage request, string id)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -161,7 +161,8 @@ namespace AnThanhLam.Web.Api
                 }
                 else
                 {
-                    var oldSize = _sizeService.Delete(id);
+                    var oldSize = _sizeService.GetById(id);
+                    _sizeService.Delete(oldSize);
                     _sizeService.Save();
 
                     var responseData = Mapper.Map<Size, SizeViewModel>(oldSize);
@@ -186,10 +187,11 @@ namespace AnThanhLam.Web.Api
                 }
                 else
                 {
-                    var listSize = new JavaScriptSerializer().Deserialize<List<int>>(checkedSize);
+                    var listSize = new JavaScriptSerializer().Deserialize<List<string>>(checkedSize);
                     foreach (var item in listSize)
                     {
-                        _sizeService.Delete(item);
+                        var oldSize = _sizeService.GetById(item);
+                        _sizeService.Delete(oldSize);
                     }
 
                     _sizeService.Save();

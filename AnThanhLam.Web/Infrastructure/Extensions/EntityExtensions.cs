@@ -77,6 +77,7 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             product.Description = productVm.Description;
             product.Alias = productVm.Alias;
             product.CategoryID = productVm.CategoryID;
+            product.BrandID = productVm.BrandID;
             product.Content = productVm.Content;
             product.Image = productVm.Image;
             product.MoreImages = productVm.MoreImages;
@@ -85,6 +86,8 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
             product.Warranty = productVm.Warranty;
             product.HomeFlag = productVm.HomeFlag;
             product.HotFlag = productVm.HotFlag;
+            product.Tags = productVm.Tags;
+            product.Sizes = productVm.Sizes;
             product.ViewCount = productVm.ViewCount;
 
             product.CreatedDate = productVm.CreatedDate;
@@ -170,6 +173,7 @@ namespace AnThanhLam.Web.Infrastructure.Extensions
         {
             size.ID = sizeViewModel.ID;
             size.Name = sizeViewModel.Name;
+            size.Type = sizeViewModel.Type;
             size.DisplayOrder = sizeViewModel.DisplayOrder;
             size.Description = sizeViewModel.Description;
 

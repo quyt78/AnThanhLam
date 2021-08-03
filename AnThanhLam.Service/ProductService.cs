@@ -54,15 +54,19 @@ namespace AnThanhLam.Service
         private IProductRepository _productRepository;
         private ITagRepository _tagRepository;
         private IProductTagRepository _productTagRepository;
+        private ISizeRepository _sizeRepository;
+        private IProductSizeRepository _productSizeRepository;
 
         private IUnitOfWork _unitOfWork;
 
         public ProductService(IProductRepository productRepository, IProductTagRepository productTagRepository,
-            ITagRepository _tagRepository, IUnitOfWork unitOfWork)
+            ITagRepository _tagRepository , ISizeRepository sizeRepository, IProductSizeRepository productSizeRepository, IUnitOfWork unitOfWork)
         {
             this._productRepository = productRepository;
             this._productTagRepository = productTagRepository;
             this._tagRepository = _tagRepository;
+            this._sizeRepository = sizeRepository;
+            this._productSizeRepository = productSizeRepository;
             this._unitOfWork = unitOfWork;
         }
 
@@ -86,11 +90,36 @@ namespace AnThanhLam.Service
                     }
 
                     ProductTag productTag = new ProductTag();
-                    productTag.ProductID = Product.ID;
+                    productTag.ProductID = product.ID;
                     productTag.TagID = tagId;
                     _productTagRepository.Add(productTag);
                 }
             }
+
+            if(!string.IsNullOrEmpty(Product.Sizes))
+            {
+                string[] sizes = Product.Sizes.Split(',');
+                for (var i = 0; i< sizes.Length; i++)
+                {
+                    var sizeName = StringHelper.ToUnsignString(sizes[i]);
+                    if(_sizeRepository.Count(x=>x.ID == sizeName) == 0)
+                    {
+                        Size size = new Size();
+                        size.ID = sizeName;
+                        size.Name = sizes[i];
+                        size.Type = CommonConstants.ProductSize;
+                        size.Status = true;
+                        _sizeRepository.Add(size);
+                    }
+                   
+                    ProductSize productSize = new ProductSize();
+                    productSize.ProductID = product.ID;
+                    productSize.SizeID = sizeName;
+                    _productSizeRepository.Add(productSize);
+
+                }
+            }
+
             return product;
         }
 
@@ -146,6 +175,32 @@ namespace AnThanhLam.Service
                     _productTagRepository.Add(productTag);
                 }
 
+            }
+
+            if (!string.IsNullOrEmpty(Product.Sizes))
+            {
+                string[] sizes = Product.Sizes.Split(',');
+                for (var i = 0; i < sizes.Length; i++)
+                {
+                    var sizeID = StringHelper.ToUnsignString(sizes[i]);
+                    if (_sizeRepository.Count(x => x.ID == sizeID) == 0)
+                    {
+                        Size size = new Size();
+                        size.ID = sizeID;
+                        size.Name = sizes[i];
+                        size.Type = CommonConstants.ProductSize;
+                        size.Status = true;
+                        _sizeRepository.Add(size);
+                    }
+                    _productSizeRepository.DeleteMulti(x => x.ProductID == Product.ID);
+                  
+
+                    ProductSize productSize = new ProductSize();
+                    productSize.ProductID = Product.ID;
+                    productSize.SizeID = sizeID;
+                    _productSizeRepository.Add(productSize);
+
+                }
             }
         }
 

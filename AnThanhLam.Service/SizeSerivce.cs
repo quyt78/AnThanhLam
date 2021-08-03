@@ -15,13 +15,13 @@ namespace AnThanhLam.Service
 
         void Update(Size size);
 
-        Size Delete(int id);
+        Size Delete(Size size);
 
         IEnumerable<Size> GetAll();
 
         IEnumerable<Size> GetAll(string keyword);
 
-        Size GetById(int id);
+        Size GetById(string id);
 
         void Save();
     }
@@ -42,9 +42,9 @@ namespace AnThanhLam.Service
             return _sizeRepository.Add(size);
         }
 
-        public Size Delete(int id)
+        public Size Delete(Size size)
         {
-            return _sizeRepository.Delete(id);
+            return _sizeRepository.Delete(size);
         }
 
         public IEnumerable<Size> GetAll()
@@ -60,9 +60,9 @@ namespace AnThanhLam.Service
                 return _sizeRepository.GetAll();
         }
 
-        public Size GetById(int id)
+        public Size GetById(string id)
         {
-            return _sizeRepository.GetSingleById(id);
+            return _sizeRepository.GetSizeById(id);
         }
 
         public void Save()

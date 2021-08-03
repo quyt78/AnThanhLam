@@ -16,9 +16,7 @@ namespace AnThanhLam.Web.Models
 
         public int CategoryID { set; get; }
 
-        public int BrandID { get; set; }
-        
-        public int? SizeID { get; set; }
+        public int BrandID { get; set; }       
 
         public string Image { set; get; }
 
@@ -64,5 +62,6 @@ namespace AnThanhLam.Web.Models
         public virtual BrandViewModel BrandViewModel { get; set; }
         
         public virtual IEnumerable<SizeViewModel> SizeViewModels { get; set; }
+        public string Sizes { get;  set; }
     }
 }
