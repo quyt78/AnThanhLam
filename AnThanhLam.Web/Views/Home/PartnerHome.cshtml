@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AnThanhLam.Web.Models.BrandViewModel>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-e252305 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="e252305" data-element_type="section" data-settings='{" stretch_section":" section-stretched","background_background":" classic"}' style="width: 1519px; left: -173.6px">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-row">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8fae77b" data-id="8fae77b" data-element_type="column">
+                <div class="elementor-column-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap">
+                        <section class="elementor-section elementor-inner-section elementor-element elementor-element-dc2d896 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="dc2d896" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-row">
+                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1232116" data-id="1232116" data-element_type="column">
+                                        <div class="elementor-column-wrap elementor-element-populated">
+                                            <div class="elementor-widget-wrap">
+                                                <div class="elementor-element elementor-element-97a6d33 elementor-widget elementor-widget-heading" data-id="97a6d33" data-element_type="widget" data-widget_type="heading.default">
+                                                    <div class="elementor-widget-container">
+                                                        <h4 class="elementor-heading-title elementor-size-default">
+                                                            Đối tác của chúng tôi
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4414065" data-id="4414065" data-element_type="column">
+                                        <div class="elementor-column-wrap elementor-element-populated">
+                                            <div class="elementor-widget-wrap">
+                                                <div class="elementor-element elementor-element-28d9c97 elementor-arrows-position-outside elementor-widget elementor-widget-image-carousel" data-id="28d9c97" data-element_type="widget" data-settings='{" slides_to_show":"4"," slides_to_scroll":"4"," navigation":" arrows"," autoplay":"yes","pause_on_hover":"yes","pause_on_interaction":"yes"," autoplay_speed":5000,"infinite":"yes"," speed":500}' data-widget_type="image-carousel.default">
+                                                    <div class="elementor-widget-container">
+                                                        <div class="elementor-image-carousel-wrapper swiper-container swiper-container-initialized swiper-container-horizontal" dir="ltr">
+                                                            <div class="elementor-image-carousel swiper-wrapper" style="transform: translate3d( 0px, 0px, 0px ); transition-duration: 0ms;">
+                                                                @foreach (var item in Model)
+                                                                {
+                                                                    <div class="swiper-slide " data-swiper-slide-index="4" style="width: 134.75px">
+                                                                        <figure class="swiper-slide-inner">
+
+                                                                            <img src="@item.Image" class="swiper-slide-image" alt="@item.Name" />
+                                                                        </figure>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                            <div class="elementor-swiper-button elementor-swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+                                                                <i class="eicon-chevron-left" aria-hidden="true">
+                                                                </i>
+                                                                <span class="elementor-screen-only">Previous</span>
+                                                            </div>
+                                                            <div class="elementor-swiper-button elementor-swiper-button-next" tabindex="0" role="button" aria-label="next slide">
+                                                                <i class="eicon-chevron-right" aria-hidden="true">
+                                                                </i>
+                                                                <span class="elementor-screen-only">Next</span>
+                                                            </div>
+                                                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true">
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

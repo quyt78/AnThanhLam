@@ -78,7 +78,7 @@
 
 .elementor-701 .elementor-element.elementor-element-e34d45f:not(.elementor-motion-effects-element-type-background), .elementor-701 .elementor-element.elementor-element-e34d45f > .elementor-motion-effects-container > .elementor-motion-effects-layer {
     background-color: #242424;
-    background-image: url("~/Assets/client/images/splash_text_tire.jpg");
+    background-image: url("../images/splash_text_tire.jpg");
     background-position: center left;
     background-repeat: no-repeat;
     background-size: contain
@@ -110,7 +110,7 @@
 
 .elementor-701 .elementor-element.elementor-element-e252305:not(.elementor-motion-effects-element-type-background), .elementor-701 .elementor-element.elementor-element-e252305 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
     background-color: #e94141;
-    background-image: url("~/Assets/client/images/tires_mark.png");
+    background-image: url("../images/tires_mark.png");
     background-position: center right;
     background-repeat: no-repeat;
     background-size: contain

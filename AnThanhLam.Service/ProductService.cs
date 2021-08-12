@@ -19,7 +19,7 @@ namespace AnThanhLam.Service
         IEnumerable<Product> GetAll();
 
         IEnumerable<Product> GetAll(string keyword);
-
+        
         IEnumerable<Product> GetLastest(int top);
 
         IEnumerable<Product> GetHotProduct(int top);
@@ -33,6 +33,8 @@ namespace AnThanhLam.Service
         IEnumerable<Product> GetReatedProducts(int id, int top);
 
         IEnumerable<string> GetListProductByName(string name);
+
+        IEnumerable<Product> SearchProductByBrandCateSizePaging(int? brandId, int? categoryId, string sizeId, int page, int pageSize, string sort, out int totalRow);
 
         Product GetById(int id);
 
@@ -240,6 +242,45 @@ namespace AnThanhLam.Service
             return query.Skip((page - 1) * pageSize).Take(pageSize);
         }
 
+        public  IEnumerable<Product> SearchProductByBrandCateSizePaging(int? brandId, int? categoryId, string sizeId, int page, int pageSize, string sort, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status);
+            if( brandId != null)
+            {
+                query = query.Where(x => x.BrandID == brandId);
+            }
+
+            if(categoryId != null)
+            {
+                query = query.Where(x => x.CategoryID == categoryId);
+            }
+
+            if(sizeId !=null)
+            {
+                query = query.Where(x => x.ProductSizes.Where(y => y.SizeID == sizeId && y.ProductID == x.ID).Any());
+            }
+
+            switch (sort)
+            {
+                case "popular":
+                    query = query.OrderByDescending(x => x.ViewCount);
+                    break;
+                case "discount":
+                    query = query.OrderByDescending(x => x.PromotionPrice.HasValue);
+                    break;
+                case "price":
+                    query = query.OrderBy(x => x.Price);
+                    break;
+                default:
+                    query = query.OrderByDescending(x => x.CreatedDate);
+                    break;
+            } 
+
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
         public IEnumerable<string> GetListProductByName(string name)
         {
             return _productRepository.GetMulti(x => x.Status && x.Name.Contains(name)).Select(y => y.Name);
@@ -247,7 +288,13 @@ namespace AnThanhLam.Service
 
         public IEnumerable<Product> Search(string keyword, int page, int pageSize, string sort, out int totalRow)
         {
-            var query = _productRepository.GetMulti(x => x.Status && x.Name.Contains(keyword));
+            var query = _productRepository.GetMulti(x => x.Status);
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = _productRepository.GetMulti(x=>x.Name.Contains(keyword));
+            }
+            
 
             switch (sort)
             {

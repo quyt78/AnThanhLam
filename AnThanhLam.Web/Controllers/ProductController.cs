@@ -17,10 +17,17 @@ namespace AnThanhLam.Web.Controllers
     {
         IProductService _productService;
         IProductCategoryService _productCategoryService;
-        public ProductController(IProductService productService, IProductCategoryService productCategoryService)
+        IBrandService _brandService;
+        ISizeService _sizeService;
+        public ProductController(IProductService productService
+            , IProductCategoryService productCategoryService
+            , IBrandService brandService
+            , ISizeService sizeService)
         {
             this._productService = productService;
             this._productCategoryService = productCategoryService;
+            this._brandService = brandService;
+            this._sizeService = sizeService;
         }
         // GET: Product
         public ActionResult Detail(int productId)
@@ -107,5 +114,92 @@ namespace AnThanhLam.Web.Controllers
                 data = model
             }, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GetAllProductCategory()
+        {
+            var productCategory = _productCategoryService.GetAll();
+            var productViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategory);
+            return PartialView(productViewModel);
+        }
+
+        public ActionResult GetProductCategoryHome()
+        {
+            var productCategory = _productCategoryService.GetAll().Take(6);
+            var productViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategory);
+            return PartialView(productViewModel);
+        }
+
+        public ActionResult GetAllBrand()
+        {
+            var brands = _brandService.GetAll();
+            var brandViewModel = Mapper.Map<IEnumerable<Brand>, IEnumerable<BrandViewModel>>(brands);
+            return PartialView(brandViewModel);
+        }
+
+        public ActionResult HomeProduct()
+        {
+            var items = _productService.GetLastest(4);
+            var result = Mapper.Map<IEnumerable<Product>,IEnumerable< ProductViewModel>> (items);
+            return PartialView(result);
+        }
+
+        public ActionResult GetAllSize()
+        {
+            var sizes = _sizeService.GetAll();
+            var sizeViewModel = Mapper.Map<IEnumerable<Size>, IEnumerable<SizeViewModel>>(sizes);
+            return PartialView(sizeViewModel);
+        }
+
+        public ActionResult SearchProduct(int? brandId, int? categoryId, string sizeId, int page = 1, string sort = "")
+        {
+            int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
+            int totalRow = 0;
+            var productModel = _productService.SearchProductByBrandCateSizePaging(brandId, categoryId, sizeId, page, pageSize, sort, out totalRow);
+            var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+            int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+           
+            var paginationSet = new PaginationSet<ProductViewModel>()
+            {
+                Items = productViewModel,
+                MaxPage = int.Parse(ConfigHelper.GetByKey("MaxPage")),
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage
+            };
+
+            return View(paginationSet);
+        }
+
+        public ActionResult GetAllProduct(int page = 1, int? categoryId = null, string sort = "")
+        {
+            int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
+            int totalRow = 0;
+            var productModel = _productService.SearchProductByBrandCateSizePaging(null, categoryId, null, page, pageSize, sort, out totalRow);
+            var productView = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
+            var totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
+
+            var paginationSet = new PaginationSet<ProductViewModel>()
+            {
+                Items = productView,
+                MaxPage = int.Parse(ConfigHelper.GetByKey("MaxPage")),
+                Page = page,
+                TotalCount = totalRow,
+                TotalPages = totalPage
+            };
+            return View(paginationSet);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ProductCategorySideBar()
+        {
+            var productCategory = _productCategoryService.GetAll();
+            var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategory);
+            return PartialView(productCategoryViewModel);
+            
+        }
+
+
+
+
     }
 }

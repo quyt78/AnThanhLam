@@ -16,14 +16,17 @@ namespace AnThanhLam.Web.Controllers
         IProductCategoryService _productCategoryService;
         IProductService _productService;
         ICommonService _commonService;
+        IBrandService _brandService;
 
         public HomeController(IProductCategoryService productCategoryService,
             IProductService productService,
-            ICommonService commonService)
+            ICommonService commonService,
+            IBrandService brandService)
         {
             _productCategoryService = productCategoryService;
             _commonService = commonService;
             _productService = productService;
+            this._brandService = brandService;
         }
 
         [OutputCache(Duration = 60, Location = System.Web.UI.OutputCacheLocation.Client)]
@@ -49,7 +52,7 @@ namespace AnThanhLam.Web.Controllers
             }
             catch
             {
-               
+
             }
 
             return View(homeViewModel);
@@ -86,5 +89,12 @@ namespace AnThanhLam.Web.Controllers
             return PartialView();
         }
 
+        [ChildActionOnly]
+        public ActionResult PartnerHome()
+        {
+            var bands = _brandService.GetAll().Take(4);
+            var result = Mapper.Map<IEnumerable<Brand>, IEnumerable<BrandViewModel>>(bands);
+            return PartialView(result);
+        }
     }
 }

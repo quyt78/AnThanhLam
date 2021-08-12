@@ -37,6 +37,12 @@ namespace AnThanhLam.Web
                   namespaces: new string[] { "AnThanhLam.Web.Controllers" }
               );
             routes.MapRoute(
+                  name: "SanPham",
+                  url: "san-pham.html",
+                  defaults: new { controller = "Product", action = "GetAllProduct", id = UrlParameter.Optional },
+                  namespaces: new string[] { "AnThanhLam.Web.Controllers" }
+              );
+            routes.MapRoute(
                  name: "Login",
                  url: "dang-nhap.html",
                  defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },
@@ -76,7 +82,7 @@ namespace AnThanhLam.Web
             routes.MapRoute(
                  name: "post category",
                  url: "{alias}_pc-{id}.html",
-                 defaults: new { controller = "PostCategories", action = "Category", id = UrlParameter.Optional, alias = UrlParameter.Optional },
+                 defaults: new { controller = "Post", action = "Category", id = UrlParameter.Optional, alias = UrlParameter.Optional },
                    namespaces: new string[] { "AnThanhLam.Web.Controllers" }
              );
             routes.MapRoute(

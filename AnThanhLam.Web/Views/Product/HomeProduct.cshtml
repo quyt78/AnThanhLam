@@ -1,0 +1,129 @@
+﻿@using AnThanhLam.Web.Models
+@{
+    var lst = (IEnumerable<ProductViewModel>)Model;
+}
+<section class="elementor-section elementor-top-section elementor-element elementor-element-6afc409b elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="6afc409b" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-row">
+            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-95f9d7a" data-id="95f9d7a" data-element_type="column">
+                <div class="elementor-column-wrap elementor-element-populated">
+                    <div class="elementor-widget-wrap">
+                        <div class="elementor-element elementor-element-18fb5b64 elementor-widget elementor-widget-tz-product-tabs" data-id="18fb5b64" data-element_type="widget" data-widget_type="tz-product-tabs.default">
+                            <div class="elementor-widget-container">
+                                <div class="tz-product-tabs style-2">
+                                    <div class="tab-nav-wrapper">
+                                        <div class="title-wrapper">
+                                            <h3 class="shortcode-title">
+                                                <span>Popular</span> Items
+                                            </h3>
+                                        </div>
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#section-new-arrivals" data-toggle="tab" rel="tab" title="new Arrivals">New Arrivals</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active row" id="section-new-arrivals" data-owl="container" data-owl-margin="20" data-owl-slides="4" data-owl-loop="true" data-owl-col-mobile="1" data-owl-slide-by="1">
+                                            <span class="carousel-loader" style="display: none">
+                                            </span>
+                                            <div class="slider-navi">
+                                                <span class="prev">
+                                                </span>
+                                                <span class="next">
+                                                </span>
+                                            </div>
+                                            <div class="owl-item" >
+                                                <ul>
+                                                    @if (lst.Count() > 0)
+                                                    {
+                                                        foreach (var item in lst)
+                                                        {
+                                                            <li style="width: 278px; margin-right: 20px;"  class="product type-product status-publish first instock product_cat-33-inch-tires product_cat-35-inch-tires product_cat-37-inch-tires product_cat-40-inch-tires product_cat-all-terrain-tires product_cat-camper-tires product_cat-custom-wheels product_cat-factory-wheels product_cat-golf-carts-tires product_cat-lawn-garden-tractor-tires product_cat-mishelin-tires product_cat-mud-terrain-tires product_cat-nitro-tires product_cat-performance-chips product_cat-riding-lawn-mower-tires product_cat-suspension-systems product_cat-tiller-tires product_cat-tire-chains product_cat-tires product_cat-tojo-tires product_cat-tractor-tires product_cat-trailer-tires product_cat-truck-tires product_cat-wheels product_cat-wheel-covers product_cat-wheels-and-tires product_cat-winter-wheels has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                                                <div class="inner-wrapper with-extra-gallery">
+                                                                    <div class="img-wrapper">
+                                                                        <span class="onsale">Sale!</span>
+                                                                        <a href="/@Html.Raw(item.Alias)" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                                            <img width="300" height="300" src="@Html.Raw(item.Image)" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" src="@Html.Raw(item.Image) 300w, , @Html.Raw(item.Image) 150w, , @Html.Raw(item.Image) 350w, , @Html.Raw(item.Image) 600w, , @Html.Raw(item.Image) 100w" sizes="(max-width: 300px) 100vw, 300px" />
+                                                                        </a>
+                                                                        <ul class="extra-gallery-thumbs">
+                                                                            @foreach (var img in item.MoreImages.Split(','))
+                                                                            {
+                                                                                <li>
+                                                                                    <a href="./@Html.Raw(item.Alias)">
+                                                                                        <img width="100" height="100" src="@Html.Raw(img.Trim())" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" loading="lazy" src="@Html.Raw(img.Trim()) 100w, , @Html.Raw(img.Trim()) 150w, , @Html.Raw(img.Trim()) 350w, , @Html.Raw(img.Trim()) 600w, , @Html.Raw(img.Trim()) 300w" sizes="(max-width: 100px) 100vw, 100px" />
+                                                                                    </a>
+                                                                                </li>
+                                                                            }                                                                            
+                                                                        </ul>
+                                                                        <div class="buttons-wrapper">
+                                                                            <span class="product-tooltip" style="display: none;">
+                                                                            </span>
+                                                                            <button type="button" class="button tm-woowishlist-button btn btn-default" data-id="3964" data-nonce="159ccb8ec5">
+                                                                                <span class="tm_woowishlist_product_actions_tip">
+                                                                                    <span class="text">Add to Wishlist</span>
+                                                                                </span>
+                                                                            </button>
+                                                                            <button type="button" class="button tm-woocompare-button btn btn-default" data-id="3964" data-nonce="7d3372080b">
+                                                                                <span class="tm_woocompare_product_actions_tip">
+                                                                                    <span class="text">Add to Compare</span>
+                                                                                </span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="excerpt-wrapper">                                                                        
+                                                                        <a href="/@Html.Raw(item.Alias)" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                                            <h2 class="woocommerce-loop-product__title"> Terra Former Tractor Light Performer Dirt </h2>
+                                                                        </a>
+                                                                        <div class="short-description">
+                                                                            <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. </p>
+                                                                        </div>
+                                                                        <div class="star-rating"></div>
+                                                                        <div class="reviews-wrapper">
+                                                                            <span>(0 reviews)</span>
+                                                                        </div>
+                                                                        <div class="price-wrapper">
+                                                                            <span class="price">
+                                                                                <del aria-hidden="true">
+                                                                                    <span class="woocommerce-Price-amount amount">
+                                                                                        <bdi>
+                                                                                            <span class="woocommerce-Price-currencySymbol">VND</span>@Html.Raw(item.Price)
+                                                                                        </bdi>
+                                                                                    </span>
+                                                                                </del>
+                                                                                <ins>
+                                                                                    <span class="woocommerce-Price-amount amount">
+                                                                                        <bdi>
+                                                                                            <span class="woocommerce-Price-currencySymbol">VND</span>@Html.Raw(item.OriginalPrice)
+                                                                                        </bdi>
+                                                                                    </span>
+                                                                                </ins>
+                                                                            </span>
+                                                                            <a href="/tires/?add-to-cart=@Html.Raw(item.ID)" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3964" data-product_sku="" aria-label="add “Terra Former Tractor Light Performer Dirt” to your cart" rel="nofollow">Add to cart</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                        }
+
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="owl-nav disabled">
+                                        <button type="button" role="presentation" class="owl-prev"></button>
+                                        <button type="button" role="presentation" class="owl-next"></button>
+                                    </div>
+                                    <div class="owl-dots disabled"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

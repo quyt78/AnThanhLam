@@ -26,6 +26,8 @@ namespace AnThanhLam.Web.Mappings
                 cfg.CreateMap<Partner, PartnerViewModel>();
                 cfg.CreateMap<Footer, FooterViewModel>();
                 cfg.CreateMap<Slide, SlideViewModel>();
+                cfg.CreateMap<OrderDetail, OrderDetailViewModel>();
+                cfg.CreateMap<Order, OrderViewModel>();
                 cfg.CreateMap<Page, PageViewModel>();
                 cfg.CreateMap<ContactDetail, ContactDetailViewModel>();
                 cfg.CreateMap<ApplicationGroup, ApplicationGroupViewModel>();

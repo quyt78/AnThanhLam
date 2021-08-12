@@ -1,0 +1,61 @@
+﻿@using AnThanhLam.Web.Models
+@model IEnumerable<ProductCategoryViewModel>
+@if (Model.Count()  ==6)
+{
+    List<ProductCategoryViewModel> list = Model.ToList();
+<section class="elementor-section elementor-top-section elementor-element elementor-element-9ff1f26 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ff1f26" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-row">
+            @for (int i = 0; i < list.Count; i += 2)
+            {
+                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-272e04a" data-id="272e04a" data-element_type="column">
+                    <div class="elementor-column-wrap elementor-element-populated">
+                        <div class="elementor-widget-wrap">
+                            <div class="elementor-element elementor-element-bc2ff3b elementor-widget elementor-widget-tz-banner" data-id="bc2ff3b" data-element_type="widget" data-widget_type="tz-banner.default">
+                                <div class="elementor-widget-container">
+                                    <figure class="tz-banner effect-sarah tz-banner-button-style-light">
+                                        <img width="738" height="312" src="@list[i].Image" class="attachment-full size-full" alt="" loading="lazy" srcset="@list[i].Image 738w, , @list[i].Image 300w, , @list[i].Image 600w, , @list[i].Image 64w" sizes="(max-width: 738px) 100vw, 738px" />
+                                        <figcaption>
+                                            <div class="main-caption">
+                                                <div style="text-align: left">
+                                                    <p>
+                                                        <span style="font-size: 22px; font-weight: 500; text-transform: uppercase; color: #fff;">@list[i].Name</span>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+                                            <a class="banner-button">Hiện hết </a>
+                                        </figcaption>
+                                        <p></p>
+                                        <a href='/@{Html.Raw(list[i].Alias);}.pc-@Html.Raw(list[i].ID + ".html")'>
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="elementor-element elementor-element-bb6cb1f elementor-widget elementor-widget-tz-banner" data-id="bb6cb1f" data-element_type="widget" data-widget_type="tz-banner.default">
+                                <div class="elementor-widget-container">
+                                    <figure class="tz-banner effect-sarah tz-banner-button-style-light">
+                                        <img width="738" height="312" src="@list[i+1].Image" class="attachment-full size-full" alt="" loading="lazy" srcset="@list[i+1].Image 738w,  @list[i+1].Image 300w,  @list[i+1].Image 600w,  @list[i+1].Image 64w" sizes="(max-width: 738px) 100vw, 738px" />
+                                        <figcaption>
+                                            <div class="main-caption">
+                                                <div style="text-align: left">
+                                                    <span style="font-size: 22px; font-weight: 500; text-transform: uppercase; color: #fff;">@list[i + 1].Name</span>
+
+                                                </div>
+                                            </div>
+                                            <a class="banner-button">Hiện hết</a>
+                                        </figcaption>
+                                        <a href='/@Html.Raw(list[i+1].Alias)_pc-@Html.Raw(list[i+1].ID + ".html")'>
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }           
+        </div>
+    </div>
+</section>
+}

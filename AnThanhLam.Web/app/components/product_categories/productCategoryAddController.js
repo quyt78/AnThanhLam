@@ -25,6 +25,17 @@
                     notificationService.displayError('Thêm mới không thành công.');
                 });
         }
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.productCategory.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
+
+
         function loadParentCategory() {
             apiService.get('/api/productcategory/getallparents', null, function (result) {
                 console.log(result);

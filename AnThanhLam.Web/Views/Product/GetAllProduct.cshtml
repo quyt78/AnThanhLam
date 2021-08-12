@@ -1,0 +1,283 @@
+﻿@model AnThanhLam.Web.Infrastructure.Core.PaginationSet<AnThanhLam.Web.Models.ProductViewModel>
+
+@{
+
+    ViewBag.Title = "Lốp oto";
+    ViewBag.MetaKeyword = "Lốp oto An Thanh Lâm";
+    ViewBag.MetaDescription = "";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+
+<nav class="woocommerce-breadcrumb">
+    <a href="/">Trang chủ</a>
+    <span>
+        <i class="fa fa-angle-right" aria-hidden="true">
+        </i>
+    </span>Lốp oto
+</nav>
+
+@if (Model.Count > 0)
+{
+    <div style="margin: 0 auto">
+        <div style="float:left">
+            <main class="site-content store-content" itemscope="itemscope" itemprop="mainContentOfPage" role="main">
+                <header class="woocommerce-products-header">
+                    <h1 class="woocommerce-products-header__title page-title">Cửa hàng</h1>
+                </header>
+                <div class="woof_products_top_panel_content">
+                </div>
+                <div class="woof_products_top_panel" style="display: none;">
+                </div>
+                <div class="woocommerce-notices-wrapper">
+                </div>
+                <div class="view-controls-wrapper">
+                    <p class="woocommerce-result-count"> Showing all 8 results</p>
+                    <form class="woocommerce-ordering" method="get">
+                        <select name="sort" class="sort" aria-label="Sắp xếp theo">
+                            <option value="popular">Phổ biến</option>
+                            <option value="discount">Khuyến mãi</option>
+                            <option value="new" selected="selected">Mới</option>
+                            <option value="price">Giá: Thấp -> Cao </option>
+                            <option value="price-desc">Giá: Cao -> Thấp  </option>
+                        </select>
+                    </form>
+                </div>
+                <ul class="products columns-3">
+                    @foreach (var product in Model.Items)
+                            {
+                                var url = "/" + product.Alias + ".p-" + product.ID;
+                                var img = Html.Raw(product.Image);
+                        <li class="product type-product post-3964 status-publish first instock product_cat-33-inch-tires product_cat-35-inch-tires product_cat-37-inch-tires product_cat-40-inch-tires product_cat-all-terrain-tires product_cat-camper-tires product_cat-custom-wheels product_cat-factory-wheels product_cat-golf-carts-tires product_cat-lawn-garden-tractor-tires product_cat-mishelin-tires product_cat-mud-terrain-tires product_cat-nitro-tires product_cat-performance-chips product_cat-riding-lawn-mower-tires product_cat-suspension-systems product_cat-tiller-tires product_cat-tire-chains product_cat-tires product_cat-tojo-tires product_cat-tractor-tires product_cat-trailer-tires product_cat-truck-tires product_cat-wheels product_cat-wheel-covers product_cat-wheels-and-tires product_cat-winter-wheels has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                            <div class="inner-wrapper with-extra-gallery">
+                                <div class="img-wrapper">
+                                    <span class="onsale">Sale!</span> <a href="@url" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        <img width="300" height="300" src="@img" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy" srcset="@img 300w, @img 150w, @img 350w, @img 600w, @img 100w" sizes="(max-width: 300px) 100vw, 300px">
+                                    </a>
+                                    <ul class="extra-gallery-thumbs">
+                                        <li>
+                                            <a href="@img">
+                                                <img width="100" height="100" src="@img" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" loading="lazy" srcset="@img 100w, @img 150w, @img 350w, @img 600w, @img 300w" sizes="(max-width: 100px) 100vw, 100px">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@img">
+                                                <img width="100" height="100" src="@img" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" loading="lazy" srcset="@img 100w, @img 150w, @img 350w, @img 600w, @img 300w" sizes="(max-width: 100px) 100vw, 100px">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@img">
+                                                <img width="100" height="100" src="@img" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" loading="lazy" srcset="@img 100w, @img 150w, @img 350w, @img 600w, @img 300w" sizes="(max-width: 100px) 100vw, 100px">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="buttons-wrapper">
+                                        <span class="product-tooltip" style="display: none;">
+                                        </span>
+                                        <button type="button" class="button tm-woowishlist-button btn btn-default" data-id="3964" data-nonce="b8bc1855cf">
+                                            <span class="tm_woowishlist_product_actions_tip">
+                                                <span class="text">Thêm vào ưa thích</span>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="button tm-woocompare-button btn btn-default" data-id="3964" data-nonce="af26095d52">
+                                            <span class="tm_woocompare_product_actions_tip">
+                                                <span class="text">Thêm vào so sánh</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="excerpt-wrapper">
+                                    @*<a class="primary-cat" href="https://chromium.themes.zone/tires/product-category/uncategorized/33-inch-tires/">33-inch Tires</a>*@
+                                    <a href="@url" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                        <h2 class="woocommerce-loop-product__title">@product.Name</h2>
+                                    </a>
+                                    <div class="short-description">
+                                        <p>@product.Description</p>
+                                    </div>
+                                    <div class="star-rating">
+                                    </div>
+                                    <div class="reviews-wrapper">
+                                        <span>(0 reviews)</span>
+                                    </div>
+                                    <div class="price-wrapper">
+                                        <span class="price">
+                                            <del aria-hidden="true">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span class="woocommerce-Price-currencySymbol">£</span>199.00
+                                                    </bdi>
+                                                </span>
+                                            </del> <ins>
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span class="woocommerce-Price-currencySymbol">£</span>169.00
+                                                    </bdi>
+                                                </span>
+                                            </ins>
+                                        </span> <a href="?add-to-cart=3964" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3964" data-product_sku="" aria-label="Add “Terra Former Tractor Light Performer Dirt” to your cart" rel="nofollow">Thêm vào giỏ hàng</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    }
+                </ul>
+                @if (Model.TotalPages > 1)
+                {
+                    // Create numeric links
+                    var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                    var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                    <nav>
+                        <ul class="pagination">
+                            @if (Model.Page > 1)
+                            {
+                                <li>
+                                    <a href="?page=1" aria-label="First">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                            }
+
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (Model.Page == i)
+                                {
+                                    <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                            }
+                            @if (Model.Page < Model.TotalPages)
+                            {
+                                <li>
+                                    <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@Model.TotalPages" aria-label="Last">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
+
+            </main>
+        </div>
+        <div style="float: left">
+            @{ Html.RenderAction("ProductCategorySideBar", "Product");}    
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
+}
+
+
+
+@*<div class="women-product">
+        @if (Model.Count > 0)
+        {
+            <div class="w_content">
+                <div class="women">
+                    <ul class="w_nav">
+                        <li>Sắp xếp : </li>
+                        <li><a class="active" href="?page=@Model.Page&sort=popular">Phổ biến</a></li> |
+                        <li><a href="?page=@Model.Page&sort=new">Mới </a></li> |
+                        <li><a href="?page=@Model.Page&sort=discount">Khuyến mãi</a></li> |
+                        <li><a href="?page=@Model.Page&sort=price">Giá: Thấp -> Cao </a></li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="grid-product">
+                @foreach (var product in Model.Items)
+                {
+                    var url = "/" + product.Alias + ".p-" + product.ID;
+                    <div class="product-grid">
+                        <div class="content_box">
+                            <a href="@url">
+                                <div class="left-grid-view grid-view-left">
+                                    <img src="@product.Image" class="img-responsive watch-right" alt="@product.Name" />
+                                    <div class="mask">
+                                        <div class="info">Xem nhanh</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <h4><a href="@url">@product.Name</a></h4>
+                        <p>@product.Description</p>
+                        @(product.Price == 0 ? "Liên hệ" : product.Price.ToString("N2"))
+                    </div>
+                }
+                <div class="clearfix"> </div>
+                @if (Model.TotalPages > 1)
+                {
+                    // Create numeric links
+                    var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                    var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                    <nav>
+                        <ul class="pagination">
+                            @if (Model.Page > 1)
+                            {
+                                <li>
+                                    <a href="?page=1" aria-label="First">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                            }
+
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (Model.Page == i)
+                                {
+                                    <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                            }
+                            @if (Model.Page < Model.TotalPages)
+                            {
+                                <li>
+                                    <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@Model.TotalPages" aria-label="Last">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center">Không có bản ghi nào được tìm thấy.</div>
+        }
+
+
+    </div>*@

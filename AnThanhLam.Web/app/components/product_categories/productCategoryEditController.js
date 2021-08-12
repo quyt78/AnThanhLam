@@ -12,6 +12,17 @@
         $scope.UpdateProductCategory = UpdateProductCategory;
         $scope.GetSeoTitle = GetSeoTitle;
 
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.productCategory.Image = fileUrl;
+                })
+            }
+            finder.popup();
+        }
+
+
         function GetSeoTitle() {
             $scope.productCategory.Alias = commonService.getSeoTitle($scope.productCategory.Name);
         }
@@ -40,6 +51,8 @@
                 console.log('Cannot get list parent');
             });
         }
+
+
 
         loadParentCategory();
         loadProductCategoryDetail();

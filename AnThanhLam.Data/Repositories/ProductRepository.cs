@@ -29,5 +29,6 @@ namespace AnThanhLam.Data.Repositories
 
             return query.OrderByDescending(x=>x.CreatedDate).Skip((page - 1) * pageSize).Take(pageSize);
         }
+
     }
 }

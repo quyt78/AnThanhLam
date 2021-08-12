@@ -17,6 +17,10 @@ namespace AnThanhLam.Service
         IEnumerable<Post> GetAll();
         IEnumerable<Post> GetAll(string keyword);
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
+        
+
         Post GetById(int id);
         IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
         void SaveChanges();
@@ -59,6 +63,7 @@ namespace AnThanhLam.Service
                 return _postRepository.GetAll();
         }
 
+        
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
@@ -71,6 +76,8 @@ namespace AnThanhLam.Service
             return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
 
         }
+
+
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {

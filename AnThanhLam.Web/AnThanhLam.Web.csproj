@@ -5332,6 +5332,7 @@
     <Folder Include="app\shared\navigation\" />
     <Folder Include="app\shared\topbar\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -5732,6 +5733,18 @@
     <Content Include="Views\ShoppingCart\ConfirmOrder.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Home\ShortCode.cshtml" />
+    <Content Include="Views\Product\GetAllProductCategory.cshtml" />
+    <Content Include="Views\Product\GetAllBrand.cshtml" />
+    <Content Include="Views\Product\GetAllSize.cshtml" />
+    <Content Include="Views\Product\SearchProduct.cshtml" />
+    <Content Include="Views\Product\GetProductCategoryHome.cshtml" />
+    <Content Include="Views\Product\HomeProduct.cshtml" />
+    <Content Include="Views\Page\GetAboutPage.cshtml" />
+    <Content Include="Views\Home\PartnerHome.cshtml" />
+    <Content Include="Views\Post\PostHome.cshtml" />
+    <Content Include="Views\Post\Category.cshtml" />
+    <Content Include="Views\Product\GetAllProduct.cshtml" />
+    <Content Include="Views\Product\ProductCategorySideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnThanhLam.Common\AnThanhLam.Common.csproj">

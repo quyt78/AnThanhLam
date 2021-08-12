@@ -1,0 +1,23 @@
+﻿@model AnThanhLam.Web.Models.PostViewModel
+<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-57c2b2d" data-id="57c2b2d" data-element_type="column">
+    <div class="elementor-column-wrap elementor-element-populated">
+        <div class="elementor-widget-wrap">
+            <div class="elementor-element elementor-element-b155176 elementor-widget elementor-widget-heading" data-id="b155176" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default">
+                        <span>@Html.Raw(Model.Name) </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="elementor-element elementor-element-825928c elementor-widget elementor-widget-text-editor" data-id="825928c" data-element_type="widget" data-widget_type="text-editor.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-text-editor elementor-clearfix">
+                        @Html.Raw(Model.Description)
+                        <br />
+                        <a class="button" style="font-size: 14px; font-weight: 500;" href="/@Html.Raw(Model.Alias)">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

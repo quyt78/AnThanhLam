@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AnThanhLam.Web.Models.BrandViewModel>
+
+@{
+    var selected = "";
+
+}
+<select class="woof_select woof_select_tire_sizes woof_select_tire_sizes_1" name="bandId" style="display: block">
+    <option value="0"> Chọn nhãn hiệu</option>
+    @if (Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            if (ViewBag.bandId != null)
+            {
+                if (ViewBag.bandId == item.ID)
+                {
+                    selected = "selected";
+                }
+            }
+            <option value="@item.ID" @selected> @item.Name </option>
+        }
+    }
+</select>
