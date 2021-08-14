@@ -192,9 +192,9 @@ namespace AnThanhLam.Web.Controllers
         [ChildActionOnly]
         public ActionResult ProductCategorySideBar()
         {
-            var productCategory = _productCategoryService.GetAll();
-            var productCategoryViewModel = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(productCategory);
-            return PartialView(productCategoryViewModel);
+            var productCategory = _productCategoryService.GetRecusionSets();
+            
+            return PartialView(productCategory);
             
         }
 
