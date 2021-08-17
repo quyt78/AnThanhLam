@@ -88,7 +88,7 @@ namespace AnThanhLam.Web.Controllers
                 var detail = new OrderDetail();
                 detail.ProductID = item.ProductId;
                 detail.Quantity = item.Quantity;
-                detail.Price = item.Product.Price;
+                detail.Price = item.Product.Price.Value;
                 orderDetails.Add(detail);
 
                 isEnough = _productService.SellProduct(item.ProductId, item.Quantity);
@@ -124,7 +124,7 @@ namespace AnThanhLam.Web.Controllers
                     info.Total_amount = orderDetails.Sum(x => x.Quantity * x.Price).ToString();
                     info.fee_shipping = "0";
                     info.Discount_amount = "0";
-                    info.order_description = "Thanh toán đơn hàng tại TeduShop";
+                    info.order_description = "Thanh toán đơn hàng tại AnThanhLam";
                     info.return_url = currentLink + "xac-nhan-don-hang.html";
                     info.cancel_url = currentLink + "huy-don-hang.html";
 

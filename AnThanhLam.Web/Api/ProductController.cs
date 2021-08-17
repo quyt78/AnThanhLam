@@ -305,7 +305,7 @@ namespace AnThanhLam.Web.Api
                 var product = _productService.GetById(id);
 
                 replaces.Add("{{ProductName}}", product.Name);
-                replaces.Add("{{Price}}", product.Price.ToString("N0"));
+                replaces.Add("{{Price}}", product.Price.Value.ToString("N0"));
                 replaces.Add("{{Description}}", product.Description);
                 replaces.Add("{{Warranty}}", product.Warranty + " tháng");
 

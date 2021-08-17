@@ -5184,6 +5184,7 @@
     <Content Include="Assets\client\css\autoptimize_single_5.css" />
     <Content Include="Assets\client\css\bootstrap.css" />
     <Content Include="Assets\client\css\custom.css" />
+    <Content Include="Assets\client\css\customcss.css" />
     <Content Include="Assets\client\css\dashicons.min.css" />
     <Content Include="Assets\client\css\etalage.css" />
     <Content Include="Assets\client\css\form.css" />
@@ -5746,6 +5747,9 @@
     <Content Include="Views\Post\Category.cshtml" />
     <Content Include="Views\Product\GetAllProduct.cshtml" />
     <Content Include="Views\Product\ProductCategorySideBar.cshtml" />
+    <Content Include="Views\Post\PostDetail.cshtml" />
+    <Content Include="Views\Post\PostSidebar.cshtml" />
+    <Content Include="Views\Post\RelateNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnThanhLam.Common\AnThanhLam.Common.csproj">

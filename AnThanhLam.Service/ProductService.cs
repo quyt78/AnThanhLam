@@ -257,7 +257,7 @@ namespace AnThanhLam.Service
 
             if(sizeId !=null)
             {
-                query = query.Where(x => x.ProductSizes.Where(y => y.SizeID == sizeId && y.ProductID == x.ID).Any());
+                query = query.Where(x => x.Sizes.Contains(sizeId));
             }
 
             switch (sort)

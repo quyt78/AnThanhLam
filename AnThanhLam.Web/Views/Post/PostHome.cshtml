@@ -24,7 +24,7 @@
                                     <span class="carousel-loader" style="display: none">
                                     </span>
                                     <div class="carousel-container columns-3 owl-carousel owl-loaded owl-drag" style="opacity: 1; height: auto">
-                                        <div class="owl-stage-outer owl-height" style="height: 454.675px">
+                                        <div class="owl-stage-outer owl-height">
                                             <div class="owl-stage" style="transform: translate3d( 0px, 0px, 0px ); transition: all 0s ease 0s; width: 1150px;">
                                                 @foreach (var item in Model)
                                                 {
@@ -34,11 +34,11 @@
                                                                 <img width="384" height="216" src="@Html.Raw(item.Image)" class="attachment-chromium-recent-posts-thumb-top size-chromium-recent-posts-thumb-top wp-post-image" alt="" loading="lazy" srcset="@Html.Raw(item.Image) 384w,  @Html.Raw(item.Image) 640w,  @Html.Raw(item.Image) 1024w" sizes="(max-width: 384px) 100vw, 384px" />
                                                             </div>
                                                             <div class="item-content">
-                                                                <a class="post-cat-link" href="/@Html.Raw(item.Alias)" rel="nofollow">@Html.Raw(item.Name)</a>                                                                
+                                                                <a class="post-cat-link" href="/@Html.Raw(item.Alias)_post-@Html.Raw(item.ID + ".html")" rel="nofollow">@Html.Raw(item.Name)</a>                                                                
                                                                 <div class="time-wrapper"> @Html.Raw(item.CreatedDate.Value.ToString("dd/MM/yyyy")) </div>
                                                                 <p class="entry-excerpt"> @Html.Raw(item.Description) [...] </p>
                                                                 <div class="entry-meta">
-                                                                    <a class="link-to-post button" rel="bookmark" href="/@Html.Raw(item.Alias)">Xem thêm</a>
+                                                                    <a class="link-to-post button" rel="bookmark" href="/@Html.Raw(item.Alias)_post-@Html.Raw(item.ID + ".html")">Xem thêm</a>
                                                                     <div class="post-views">
                                                                         <i class="chromium-icon-view">
                                                                         </i>286

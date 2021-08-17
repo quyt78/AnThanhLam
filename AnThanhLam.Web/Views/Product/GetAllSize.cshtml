@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<AnThanhLam.Web.Models.SizeViewModel>
 
-<select class="woof_select woof_select_tire_sizes woof_select_tire_sizes_1" name="sizeId" style="display: block">
-    <option value="0"> Chọn cỡ bánh</option>
+<select class="woof_select woof_select_tire_sizes woof_select_tire_sizes_1" name="sizeId" id="sizeId" style="display: block">
+    <option value="" selected> Chọn cỡ bánh</option>
     @if (Model.Count() > 0)
     {
         foreach (var item in Model)
         {
-            <option value="@item.ID"> @item.Name </option>
+            
+            <option value="@item.ID" @(ViewBag.sizeId != null && ViewBag.sizeId == item.ID ? "Selected" : "")> @item.Name </option>
         }
     }
 </select>

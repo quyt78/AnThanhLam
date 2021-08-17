@@ -22,7 +22,7 @@ namespace AnThanhLam.Web.Models
 
         public string MoreImages { set; get; }
 
-        public decimal Price { set; get; }
+        public decimal? Price { set; get; }
 
         public decimal? PromotionPrice { set; get; }
 

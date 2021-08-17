@@ -1,40 +1,41 @@
 ﻿@using AnThanhLam.Model.Abstract
 @using AnThanhLam.Model.Models
 @model List<RecusionSet<ProductCategory>>
+@helper DisplayTree(RecusionSet<ProductCategory> item)
+{
+    <li class="cat-item cat-item-117 @if (item.items != null && item.items.Count > 0) { Html.Raw("cat-parent"); } ">
+        <a href="?categoryId=@Html.Raw(item.ID)">@Html.Raw(item.Name)</a>
+
+        @if (item.items.Any())
+        {
+
+
+            <ul class="children">
+                @foreach (var i in item.items)
+                {
+                    @DisplayTree(i);
+                }
+
+
+            </ul>
+        }
+    </li>
+}
 
 <aside id="sidebar-shop" class="widget-area site-sidebar style-2" role="complementary">
     <section id="tz_categories-3" class="alt-style widget widget_tz_categories">
         <h3 class="widget-title" itemprop="name">
-            <span>Categories</span>
+            <span>Danh mục</span>
         </h3>
         <ul class="pt-categories">
-            @if (Model.Count > 0)
+            @if (Model.Any())
             {
-                foreach (var item in Model)
+                foreach (var ct in Model)
                 {
-
-            <li class="cat-item cat-item-117 @if (item.items != null && item.items.Count > 0) { Html.Raw("cat-parent"); } ">
-                <a href="?categoryId=@Html.Raw(item.ID)">@Html.Raw(item.Name)</a>
-                
-                @if (item.items != null && item.items.Count > 0)
-                {
-
-
-                    <ul id="children-of-117" class="children collapse" aria-expanded="false">
-                        @foreach (var i in item.items)
-                        {
-                            <li class="cat-item cat-item-224">
-                                <a href="?categoryId=@Html.Raw(i.ID)">@Html.Raw(i.Name)</a>
-                            </li>
-                        }
-
-                        
-                    </ul>
+                    @Html.Raw(DisplayTree(ct));                   
                 }
-            </li>
-                }
-            }          
+            }
         </ul>
-    </section>    
+    </section>
 </aside>
 

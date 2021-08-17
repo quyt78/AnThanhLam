@@ -1,8 +1,126 @@
 ﻿@using AnThanhLam.Web.Models
 @model AnThanhLam.Web.Infrastructure.Core.PaginationSet<PostViewModel>
-@{   
+@{
     Layout = "~/Views/Shared/Layouts.cshtml";
 }
 
-<h2>Category</h2>
+@section footerCSS{
+
+    <link href="~/Assets/client/css/customcss.css" rel="stylesheet" />
+    <style type="text/css">
+        .pages_about {
+            height: auto;
+            background: unset;
+        }
+
+        .fl_title {
+            margin-top: 0;
+            background: unset;
+        }
+
+        .box_pages {
+            min-height: 600px;
+        }
+    </style>
+}
+<<div class="box_pages">
+     <section>
+         <div class="pages_about">
+             <section>
+                 <div class="fl_title">
+                     <div listscope="" listtype="http://data-vocabulary.org/Breadcrumb">
+                         <a href="/" listprop="url" title="An Thành Lâm">
+                             <span listprop="title">Trang chủ</span>
+                         </a>
+                     </div>
+                     <code><i class="fa fa-caret-right"></i> </code>
+                     <div listscope="" listtype="http://data-vocabulary.org/Breadcrumb">                         
+                             <span listprop="title">@Html.Raw(ViewBag.Title)</span>                        
+                     </div>                     
+                 </div>
+             </section>
+         </div>
+         <div class="box_left">
+             <div class="box_news">
+
+                 @if (Model.Count > 0)
+                 {
+                     <ul>
+                         @foreach (var post in Model.Items)
+                         {
+                             <li>
+                                 <figure><img src="@Html.Raw(post.Image)" alt="@Html.Raw(post.Name)" data-pagespeed-url-hash="3521572673" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></figure>
+                                 <aside>
+                                     <h2>
+                                         <a href="/@Html.Raw(post.Alias)_post-@Html.Raw(post.ID + ".html")" title="@Html.Raw(post.Name)">@Html.Raw(post.Name)</a>
+                                     </h2>
+                                     <p>@Html.Raw(post.Description) </p>
+                                 </aside>
+                             </li>
+                         }
+
+
+                     </ul>
+
+
+                     if (Model.TotalPages > 1)
+                     {
+                         // Create numeric links
+                         var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                         var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                         <nav>
+                             <ul class="pagination">
+                                 @if (Model.Page > 1)
+                                 {
+                                     <li>
+                                         <a href="?page=1" aria-label="First">
+                                             <i class="fa fa-angle-double-left"></i>
+                                         </a>
+                                     </li>
+                                     <li>
+                                         <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                             <i class="fa fa-angle-double-left"></i>
+                                         </a>
+                                     </li>
+                                 }
+
+                                 @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                 {
+                                     if (Model.Page == i)
+                                     {
+                                         <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                                     }
+                                     else
+                                     {
+                                         <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                     }
+                                 }
+                                 @if (Model.Page < Model.TotalPages)
+                                 {
+                                     <li>
+                                         <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                             <i class="fa fa-angle-double-right"></i>
+                                         </a>
+                                     </li>
+                                     <li>
+                                         <a href="?page=@Model.TotalPages" aria-label="Last">
+                                             <i class="fa fa-angle-double-right"></i>
+                                         </a>
+                                     </li>
+                                 }
+                             </ul>
+                         </nav>
+                     }
+
+                 }
+                 else
+                 {
+                     <div class="text-center">Không có sản phẩm nào được tìm thấy. </div>
+                 }
+             </div>
+         </div>
+         @{Html.RenderAction("PostSidebar", "Post");}
+     </section>
+</div>
 

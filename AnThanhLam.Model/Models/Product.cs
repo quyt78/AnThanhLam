@@ -35,7 +35,7 @@ namespace AnThanhLam.Model.Models
         [Column(TypeName = "xml")]
         public string MoreImages { set; get; }
 
-        public decimal Price { set; get; }
+        public decimal? Price { set; get; }
 
         public decimal? PromotionPrice { set; get; }
 

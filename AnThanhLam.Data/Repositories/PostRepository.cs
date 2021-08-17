@@ -10,6 +10,7 @@ namespace AnThanhLam.Data.Repositories
     public interface IPostRepository : IRepository<Post>
     {
         IEnumerable<Post> GetAllByTag(string tag, int pageIndex, int pageSize, out int totalRow);
+        IEnumerable<Post> GetAllByCategory(int categoryId, int pageIndex, int pageSize, out int totalRow);
     }
 
     public class PostRepository : RepositoryBase<Post>, IPostRepository
@@ -25,6 +26,20 @@ namespace AnThanhLam.Data.Repositories
                         on p.ID equals pt.PostID
                         where pt.TagID == tag && p.Status
                         orderby p.CreatedDate descending
+                        select p;
+
+            totalRow = query.Count();
+
+            query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+
+            return query;
+        }
+
+        public IEnumerable<Post> GetAllByCategory(int categoryId, int pageIndex, int pageSize, out int totalRow)
+        {
+            var query = (IQueryable<Post>) from p in DbContext.Posts
+                        where p.CategoryID == categoryId && p.Status
+                        orderby p.CreatedDate descending                        
                         select p;
 
             totalRow = query.Count();

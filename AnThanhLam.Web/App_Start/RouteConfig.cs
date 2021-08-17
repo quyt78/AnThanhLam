@@ -81,13 +81,13 @@ namespace AnThanhLam.Web
              );
             routes.MapRoute(
                  name: "post category",
-                 url: "{alias}_pc-{id}.html",
+                 url: "{alias}_pc-{idCategory}.html",
                  defaults: new { controller = "Post", action = "Category", id = UrlParameter.Optional, alias = UrlParameter.Optional },
                    namespaces: new string[] { "AnThanhLam.Web.Controllers" }
              );
             routes.MapRoute(
                  name: "Bai viet",
-                 url: "{alias}_post-{postId}.html",
+                 url: "{alias}_post-{id}.html",
                  defaults: new { controller = "Post", action = "PostDetail", id = UrlParameter.Optional, alias = UrlParameter.Optional },
                    namespaces: new string[] { "AnThanhLam.Web.Controllers" }
              );

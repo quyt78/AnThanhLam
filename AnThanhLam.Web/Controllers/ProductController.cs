@@ -45,11 +45,15 @@ namespace AnThanhLam.Web.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Category(int id, int page = 1, string sort = "")
+        public ActionResult Category(int id, int? page , string sort = "")
         {
             int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
             int totalRow = 0;
-            var productModel = _productService.GetListProductByCategoryIdPaging(id, page, pageSize, sort, out totalRow);
+            if (!page.HasValue)
+            {
+                page = 1;
+            }
+            var productModel = _productService.GetListProductByCategoryIdPaging(id, page.Value, pageSize, sort, out totalRow);
             var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
             int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
 
@@ -59,7 +63,7 @@ namespace AnThanhLam.Web.Controllers
             {
                 Items = productViewModel,
                 MaxPage = int.Parse(ConfigHelper.GetByKey("MaxPage")),
-                Page = page,
+                Page = page.Value,
                 TotalCount = totalRow,
                 TotalPages = totalPage
             };
@@ -150,11 +154,11 @@ namespace AnThanhLam.Web.Controllers
             return PartialView(sizeViewModel);
         }
 
-        public ActionResult SearchProduct(int? brandId, int? categoryId, string sizeId, int page = 1, string sort = "")
+        public ActionResult SearchProduct(int? bandId, int? categoryId, string sizeId, int page = 1, string sort = "")
         {
             int pageSize = int.Parse(ConfigHelper.GetByKey("PageSize"));
             int totalRow = 0;
-            var productModel = _productService.SearchProductByBrandCateSizePaging(brandId, categoryId, sizeId, page, pageSize, sort, out totalRow);
+            var productModel = _productService.SearchProductByBrandCateSizePaging(bandId, categoryId, sizeId, page, pageSize, sort, out totalRow);
             var productViewModel = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productModel);
             int totalPage = (int)Math.Ceiling((double)totalRow / pageSize);
            
@@ -166,6 +170,10 @@ namespace AnThanhLam.Web.Controllers
                 TotalCount = totalRow,
                 TotalPages = totalPage
             };
+
+            ViewBag.bandId = bandId;
+            ViewBag.categoryId = categoryId;
+            ViewBag.sizeId = sizeId;
 
             return View(paginationSet);
         }

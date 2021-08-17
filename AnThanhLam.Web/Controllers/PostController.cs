@@ -28,6 +28,14 @@ namespace AnThanhLam.Web.Controllers
             return View();
         }
 
+        public ActionResult PostDetail(int id)
+        {
+            var postItem = _postService.GetById(id);
+            var postVm = Mapper.Map<Post, PostViewModel>(postItem);
+            postVm.PostCategory = Mapper.Map<PostCategory, PostCategoryViewModel>(_postCategoryService.GetById(postItem.CategoryID));
+            return View(postVm);
+        }
+
         [ChildActionOnly]
         public ActionResult PostHome()
         {
@@ -35,7 +43,26 @@ namespace AnThanhLam.Web.Controllers
             var result = Mapper.Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(item);
             return PartialView(result);
         }
-       
+
+        [ChildActionOnly]
+        public ActionResult RelateNews(int postId)
+        {
+            var postItem = _postService.GetById(postId);
+            var lstItems = _postService.GetAll().Where(x => x.Status && x.ID != postId && x.CategoryID == postItem.CategoryID).OrderBy(x => x.CreatedDate).Take(5);
+            var result = Mapper.Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(lstItems);
+            return PartialView(result);
+        }
+        
+        public ActionResult PostSidebar()
+        {
+            return PartialView();
+        }
+
+        public ActionResult NewPost()
+        {
+            return PartialView();
+        }
+               
         public ActionResult Category(int idCategory,  int page = 1)
         {
             string nameCategory = _postCategoryService.GetById(idCategory).Name;

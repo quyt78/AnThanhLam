@@ -1,0 +1,60 @@
+﻿@model AnThanhLam.Web.Models.PostViewModel
+@{
+    ViewBag.Title = "PostDetail";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+
+@section footerCSS{
+
+    <link href="~/Assets/client/css/customcss.css" rel="stylesheet" />
+    <style type="text/css">
+        .pages_about {
+            height: auto;
+            background: unset;
+        }
+        .fl_title {
+            margin-top: 0;
+            background: unset;
+        }
+    </style>
+}
+
+
+<div class="box_pages fl_padding50">
+    <section>
+        <div class="pages_about">
+            <section>
+                <div class="fl_title">
+                    <div listscope="" listtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="/" listprop="url" title="An Thành Lâm">
+                            <span listprop="title">Trang chủ</span>
+                        </a>
+                    </div>
+                    <code><i class="fa fa-caret-right"></i> </code>
+                    <div listscope="" listtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="/@(Model.PostCategory.Alias)_pc-@(Model.PostCategory.ID).html" listprop="url" title="An Thành Lâm">
+                            <span listprop="title">@Html.Raw(Model.PostCategory.Name)</span>
+                        </a>
+                    </div>
+                    <code><i class="fa fa-caret-right"></i> </code>
+                    <div listscope="" listtype="http://data-vocabulary.org/Breadcrumb">                        
+                            <span listprop="title">@Html.Raw(Model.Name)</span>                       
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="box_left">
+            <div class="box_content">
+                <aside style="padding: 10px">
+                    <h1>@Html.Raw(Model.Name)</h1>
+
+                    @Html.Raw(Model.Content)
+
+                </aside>
+               @{ Html.RenderAction("RelateNews", "Post", new { postId = Model.ID });}
+            </div>
+        </div>
+        @{Html.RenderAction("PostSidebar", "Post");}
+    </section>
+</div>
+

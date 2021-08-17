@@ -312,3 +312,12 @@ td.product-remove a {
 .owl-item li.product.type-product.status-publish {
     float: left;
 }
+
+
+.women-product {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px 0 50px 0;
+}
+
+

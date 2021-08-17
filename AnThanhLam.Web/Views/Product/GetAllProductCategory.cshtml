@@ -1,12 +1,14 @@
-﻿@model IEnumerable<AnThanhLam.Web.Models.ProductCategoryViewModel>
+﻿@using AnThanhLam.Web.Models
+@model IEnumerable<ProductCategoryViewModel>
 
-<select class="woof_select woof_select_tire_sizes woof_select_tire_sizes_0" name="categoryId" style="display: block">
-    <option value="0"> Chọn loại xe</option>
+<select class="woof_select woof_select_tire_sizes woof_select_tire_sizes_0" name="categoryId" id="categoryId" style="display: block">
+    <option value=""> Chọn loại xe</option>
     @if (Model.Count() > 0)
     {
         foreach (var item in Model)
         {
-            <option value=" @item.ID"> @item.Name </option>
+          
+            <option value=" @item.ID" @(ViewBag.categoryId != null && ViewBag.categoryId == item.ID? "Selected" : "")> @item.Name </option>
         }
 
     }
