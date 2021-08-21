@@ -72,7 +72,7 @@
                 <ul class="products columns-4">
                     @foreach (var product in Model.Items)
                     {
-                        var url = "/" + product.Alias + ".p-" + product.ID;
+                        var url = "/" + product.Alias + ".p-" + product.ID+ ".html";
                         var img = Html.Raw(product.Image);
                         <li class="product type-product post-3964 status-publish first instock product_cat-33-inch-tires product_cat-35-inch-tires product_cat-37-inch-tires product_cat-40-inch-tires product_cat-all-terrain-tires product_cat-camper-tires product_cat-custom-wheels product_cat-factory-wheels product_cat-golf-carts-tires product_cat-lawn-garden-tractor-tires product_cat-mishelin-tires product_cat-mud-terrain-tires product_cat-nitro-tires product_cat-performance-chips product_cat-riding-lawn-mower-tires product_cat-suspension-systems product_cat-tiller-tires product_cat-tire-chains product_cat-tires product_cat-tojo-tires product_cat-tractor-tires product_cat-trailer-tires product_cat-truck-tires product_cat-wheels product_cat-wheel-covers product_cat-wheels-and-tires product_cat-winter-wheels has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
                             <div class="inner-wrapper with-extra-gallery">
