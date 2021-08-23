@@ -12,7 +12,7 @@ namespace AnThanhLam.Model.Models
     [Table("Sizes")]
     public class Size : Auditable
     {
-        [Key]
+        [Required]
         [MaxLength(50)]
         [Column(TypeName = "varchar")]
         public string ID { set; get; }

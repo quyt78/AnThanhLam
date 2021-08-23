@@ -117,6 +117,18 @@
     <Compile Include="Migrations\202108141827474_ChangePriceProduct.designer.cs">
       <DependentUpon>202108141827474_ChangePriceProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108220902501_changeKeySize.cs" />
+    <Compile Include="Migrations\202108220902501_changeKeySize.designer.cs">
+      <DependentUpon>202108220902501_changeKeySize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108220904378_changeKeyTag.cs" />
+    <Compile Include="Migrations\202108220904378_changeKeyTag.designer.cs">
+      <DependentUpon>202108220904378_changeKeyTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108220913049_changeVisitoer.cs" />
+    <Compile Include="Migrations\202108220913049_changeVisitoer.designer.cs">
+      <DependentUpon>202108220913049_changeVisitoer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplicationGroupRepository.cs" />
@@ -202,6 +214,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108141827474_ChangePriceProduct.resx">
       <DependentUpon>202108141827474_ChangePriceProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108220902501_changeKeySize.resx">
+      <DependentUpon>202108220902501_changeKeySize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108220904378_changeKeyTag.resx">
+      <DependentUpon>202108220904378_changeKeyTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108220913049_changeVisitoer.resx">
+      <DependentUpon>202108220913049_changeVisitoer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

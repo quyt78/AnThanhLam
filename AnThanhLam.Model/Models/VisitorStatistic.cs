@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MassTransit;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +9,7 @@ namespace AnThanhLam.Model.Models
     public class VisitorStatistic
     {
         [Key]
-        public Guid ID { set; get; }
+        public string ID { set; get; }
 
         [Required]
         public DateTime VisitedDate { set; get; }

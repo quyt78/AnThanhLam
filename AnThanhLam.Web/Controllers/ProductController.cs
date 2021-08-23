@@ -205,9 +205,5 @@ namespace AnThanhLam.Web.Controllers
             return PartialView(productCategory);
             
         }
-
-
-
-
     }
 }

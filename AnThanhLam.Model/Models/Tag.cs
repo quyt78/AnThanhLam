@@ -6,7 +6,7 @@ namespace AnThanhLam.Model.Models
     [Table("Tags")]
     public class Tag
     {
-        [Key]
+        [Required]
         [MaxLength(50)]
         [Column(TypeName = "varchar")]
         public string ID { set; get; }
